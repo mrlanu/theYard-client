@@ -1,0 +1,28 @@
+<section
+  gdColumns="230px auto"
+  gdRows="56px auto 64px"
+  gdRows.gt-xs="64px auto 64px"
+  gdAreas="hd hd | main main | footer footer">
+
+  <app-header gdArea="hd" (sidenavToggle)="sidenav.toggle()"></app-header>
+
+  <mat-sidenav-container gdArea="main">
+
+    <mat-sidenav #sidenav role="navigation">
+      <app-sidenav-list (closeSidenav)="sidenav.close()"></app-sidenav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+
+  </mat-sidenav-container>
+
+  <footer gdArea="footer">
+    <ul class="navigation-list" fxLayout fxLayoutAlign="center center">
+      <li class="navigation-item"><a style="cursor: pointer">Terms of Use</a></li>
+      <li class="navigation-item"><a style="cursor: pointer">Support</a></li>
+    </ul>
+  </footer>
+
+</section>

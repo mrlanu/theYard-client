@@ -5,16 +5,26 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MaterialModule} from './material.module';
+import {HeaderComponent} from './dashboard/navigation/header/header.component';
+import {SidenavListComponent} from './dashboard/navigation/sidenav-list/sidenav-list.component';
+import {FlexLayoutModule} from '@angular/flex-layout';
+import { WelcomePageComponent } from './welcome-page/welcome-page.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HeaderComponent,
+    SidenavListComponent,
+    WelcomePageComponent,
+    DashboardComponent
   ],
   imports: [
     MaterialModule,
     BrowserAnimationsModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FlexLayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]
