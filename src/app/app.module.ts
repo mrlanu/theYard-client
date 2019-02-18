@@ -10,6 +10,8 @@ import {SidenavListComponent} from './dashboard/navigation/sidenav-list/sidenav-
 import {FlexLayoutModule} from '@angular/flex-layout';
 import { WelcomePageComponent } from './welcome-page/welcome-page.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { UnitsSorterComponent } from './dashboard/units-summaries/units-sorter/units-sorter.component';
+import { UnitsSummariesComponent } from './dashboard/units-summaries/units-summaries.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     HeaderComponent,
     SidenavListComponent,
     WelcomePageComponent,
-    DashboardComponent
+    DashboardComponent,
+    UnitsSorterComponent,
+    UnitsSummariesComponent
   ],
   imports: [
     MaterialModule,
