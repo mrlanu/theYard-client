@@ -12,6 +12,7 @@ import { WelcomePageComponent } from './welcome-page/welcome-page.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { UnitsSorterComponent } from './dashboard/units-summaries/units-sorter/units-sorter.component';
 import { UnitsSummariesComponent } from './dashboard/units-summaries/units-summaries.component';
+import {UnitsService} from './units.service';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,7 @@ import { UnitsSummariesComponent } from './dashboard/units-summaries/units-summa
     AppRoutingModule,
     FlexLayoutModule
   ],
-  providers: [],
+  providers: [UnitsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

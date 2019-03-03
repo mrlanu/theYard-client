@@ -5,7 +5,18 @@
     </mat-tab>
 
     <mat-tab label="Addison, IL">
-     ygygy
+        <mat-accordion fxLayout>
+          <mat-expansion-panel fxFlex="340px" *ngFor="let unit of units" style="margin-bottom: 1px" (opened)="onAccountTypeSelect(group.name)">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <div fxFlex fxLayout fxLayoutAlign="space-between">
+                  <div style="margin-left: 15px">{{ unit.id }}</div>
+                  <div>{{ unit.location }}</div>
+                </div>
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+          </mat-expansion-panel>
+        </mat-accordion>
     </mat-tab>
 
     <mat-tab label="Portland, OR">

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {UnitsService} from '../../../units.service';
+import {Trailer} from '../../../models/trailer.model';
 
 @Component({
   selector: 'app-units-sorter',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UnitsSorterComponent implements OnInit {
 
-  constructor() { }
+  units: Trailer[] = [];
+
+  constructor(private unitsService: UnitsService) { }
 
   ngOnInit() {
+    this.units = this.unitsService.getTrailers();
   }
 
 }
