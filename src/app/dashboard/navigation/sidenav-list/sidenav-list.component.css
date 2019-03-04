@@ -1,9 +1,18 @@
-
 a {
   text-decoration: none;
   color: white;
 }
 
 a:hover, a:active {
-  color: lightgrey;
+  color: #004D40;
+}
+
+.nav-caption{
+  padding-left: 10px;
+}
+
+.active{
+  font-size: 20px;
+  border-bottom: #004F43 1px solid;
+  border-top: #004F43 1px solid;
 }

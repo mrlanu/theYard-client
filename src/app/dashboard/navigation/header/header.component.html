@@ -1,20 +1,11 @@
-<mat-toolbar color="primary">
+<mat-toolbar class="my-toolbar" color="primary">
+
   <div>
-    <button mat-icon-button (click)="onSidenavToggle()">
+    <button mat-mini-fab color="accent" (click)="onSidenavToggle()">
       <mat-icon>menu</mat-icon>
     </button>
   </div>
-  <div>
-    <div class="logo">theYard</div>
-  </div>
-  <div fxFlex fxLayout fxLayoutAlign="flex-end" fxHide.xs>
-    <ul fxLayout class="navigation-items" fxLayoutGap="10px">
-      <li *ngIf="!isAuth"><a routerLink="/signup">Signup</a></li>
-      <li *ngIf="!isAuth"><a routerLink="/login">Login</a></li>
-      <li *ngIf="isAuth"><a routerLink="/training">Training</a></li>
-      <li *ngIf="isAuth">
-        <a style="cursor: pointer" (click)="onLogout()">Logout</a>
-      </li>
-    </ul>
-  </div>
+
+  <div class="logo"><p class="logo__text">theYard</p></div>
+
 </mat-toolbar>

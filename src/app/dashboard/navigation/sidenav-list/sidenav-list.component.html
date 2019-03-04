@@ -1,6 +1,8 @@
 <mat-nav-list>
+  <div style="height: 70px"></div>
   <a mat-list-item
      routerLink="/signup"
+     routerLinkActive="active"
      (click)="onClose()"
      *ngIf="!isAuth">
     <mat-icon>face</mat-icon>
@@ -8,13 +10,15 @@
   </a>
   <a mat-list-item
      routerLink="/login"
+     routerLinkActive="active"
      (click)="onClose()"
      *ngIf="!isAuth">
     <mat-icon>input</mat-icon>
     <span class="nav-caption">&nbsp;&nbsp;Login</span>
   </a>
   <a mat-list-item
-     routerLink="/training"
+     routerLink="/dashboard/test"
+     routerLinkActive="active"
      (click)="onClose()"
      *ngIf="isAuth">
     <mat-icon>fitness_center</mat-icon>

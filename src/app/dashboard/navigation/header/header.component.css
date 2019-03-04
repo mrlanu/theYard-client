@@ -19,13 +19,18 @@ a:hover, a:active{
 }
 
 .logo {
+  position: absolute;
+  left: 20%;
+  width: 150px;
+  height: 100%;
   background: #FFA726;
-  color: #004D40;
-  font-weight: bold;
-  font-size: 35px;
-  margin-left: 100px;
-  border: 1px solid #004F43;
-  padding: 15px 40px;
-  font-family: 'Roboto', sans-serif;
+  border-bottom: 1px solid #004D40;
 }
 
+.logo__text {
+  margin: 15px 0 0;
+  font-weight: bold;
+  font-size: 35px;
+  text-align: center;
+  color: #004D40;
+}
