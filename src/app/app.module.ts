@@ -8,9 +8,16 @@ import {MaterialModule} from './material.module';
 import {HeaderComponent} from './dashboard/navigation/header/header.component';
 import {SidenavListComponent} from './dashboard/navigation/sidenav-list/sidenav-list.component';
 import {FlexLayoutModule} from '@angular/flex-layout';
-import { WelcomePageComponent } from './welcome-page/welcome-page.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import {UnitsService} from './units.service';
+import {SignupComponent} from './auth/signup/signup.component';
+import {LoginComponent} from './auth/login/login.component';
+import {WelcomePageComponent} from './auth/welcome-page/welcome-page.component';
+import {UiService} from './shared/ui.service';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import {AuthInterceptor} from './auth/auth.interceptor';
+import {ReactiveFormsModule} from '@angular/forms';
+import {AuthService} from './auth/auth.service';
 
 @NgModule({
   declarations: [
@@ -19,15 +26,19 @@ import {UnitsService} from './units.service';
     SidenavListComponent,
     WelcomePageComponent,
     DashboardComponent,
+    SignupComponent,
+    LoginComponent
   ],
   imports: [
     MaterialModule,
     BrowserAnimationsModule,
     BrowserModule,
     AppRoutingModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [UnitsService],
+  providers: [UnitsService, UiService, AuthService, {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

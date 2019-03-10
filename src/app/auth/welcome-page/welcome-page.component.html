@@ -1,0 +1,8 @@
+<div class="background">
+  <div id="logo">theYard by Lanu<span>©</span></div>
+  <div fxLayout="column" fxLayoutAlign="center center">
+    <div style="height: 200px"></div>
+    <app-login *ngIf="isLogin"></app-login>
+    <app-signup *ngIf="!isLogin"></app-signup>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+.background{
+  height: 100%;
+  background: url('/assets/img/road-background-1.jpg') left 50% bottom 50%/cover;
+}
+
+#logo {
+  font-family: 'Kaushan Script', cursive;
+  margin-left: 20px;
+  padding-top: 20px;
+  color: white;
+  font-size: 20px;
+}
