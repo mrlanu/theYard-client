@@ -54,8 +54,8 @@ export class AuthService {
   authSuccessfully() {
     this.uiService.isLoadingChanged.next(false);
     this.isAuthenticated = true;
-    this.uiService.isShowBudgetSelectChanged.next(true);
-    this.uiService.openSnackBar('Logging successfully, please select your Budget', null, 5000);
+    this.uiService.openSnackBar('Logging successfully.', null, 5000);
+    this.router.navigate(['dashboard', 'test']);
   }
 
   getToken(authData: AuthData) {

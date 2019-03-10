@@ -25,6 +25,7 @@ a:hover, a:active{
   height: 100%;
   background: #FFA726;
   border-bottom: 1px solid #004D40;
+  font-family: 'Kaushan Script', cursive;
 }
 
 .logo__text {

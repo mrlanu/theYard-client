@@ -11,7 +11,6 @@ export class WelcomePageComponent implements OnInit, OnDestroy {
 
   componentSubs: Subscription[] = [];
   isLogin = true;
-  isShowBudgetSelect = false;
 
   constructor(private uiService: UiService) { }
 
@@ -19,10 +18,6 @@ export class WelcomePageComponent implements OnInit, OnDestroy {
     this.componentSubs.push(this.uiService.isLoginChanged
       .subscribe(result => {
         this.isLogin = result;
-      }));
-    this.componentSubs.push(this.uiService.isShowBudgetSelectChanged
-      .subscribe(result => {
-        this.isShowBudgetSelect = result;
       }));
   }
 

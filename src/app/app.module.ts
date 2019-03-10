@@ -18,6 +18,8 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {AuthInterceptor} from './auth/auth.interceptor';
 import {ReactiveFormsModule} from '@angular/forms';
 import {AuthService} from './auth/auth.service';
+import {AuthGuard} from './auth/auth.guard';
+import { TestComponent } from './dashboard/test/test.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,8 @@ import {AuthService} from './auth/auth.service';
     WelcomePageComponent,
     DashboardComponent,
     SignupComponent,
-    LoginComponent
+    LoginComponent,
+    TestComponent
   ],
   imports: [
     MaterialModule,
@@ -38,7 +41,7 @@ import {AuthService} from './auth/auth.service';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [UnitsService, UiService, AuthService, {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}],
+  providers: [UnitsService, UiService, AuthService, AuthGuard, {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
