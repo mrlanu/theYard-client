@@ -1,0 +1,29 @@
+table {
+  width: 100%;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+td, th {
+  width: 20%;
+}
+
+.filter {
+  width: 300px;
+  margin-left: 40px;
+}
+
+.amount-expense, .amount-income {
+  background: #FFAB91;
+  text-align: center;
+  width: 30px;
+  border-radius: 15px;
+  padding: 3px 7px;
+}
+
+.amount-income {
+  background: #80CBC4;
+}

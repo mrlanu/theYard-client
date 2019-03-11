@@ -9,7 +9,6 @@ import {HeaderComponent} from './dashboard/navigation/header/header.component';
 import {SidenavListComponent} from './dashboard/navigation/sidenav-list/sidenav-list.component';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import {UnitsService} from './units.service';
 import {SignupComponent} from './auth/signup/signup.component';
 import {LoginComponent} from './auth/login/login.component';
 import {WelcomePageComponent} from './auth/welcome-page/welcome-page.component';
@@ -19,7 +18,8 @@ import {AuthInterceptor} from './auth/auth.interceptor';
 import {ReactiveFormsModule} from '@angular/forms';
 import {AuthService} from './auth/auth.service';
 import {AuthGuard} from './auth/auth.guard';
-import { TestComponent } from './dashboard/test/test.component';
+import { TrailersListComponent } from './dashboard/trailers/trailers-list/trailers-list.component';
+import {TrailerService} from './trailer.service';
 
 @NgModule({
   declarations: [
@@ -30,7 +30,7 @@ import { TestComponent } from './dashboard/test/test.component';
     DashboardComponent,
     SignupComponent,
     LoginComponent,
-    TestComponent
+    TrailersListComponent,
   ],
   imports: [
     MaterialModule,
@@ -41,7 +41,7 @@ import { TestComponent } from './dashboard/test/test.component';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [UnitsService, UiService, AuthService, AuthGuard, {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}],
+  providers: [TrailerService, UiService, AuthService, AuthGuard, {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

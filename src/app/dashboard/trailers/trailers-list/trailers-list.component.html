@@ -1,0 +1,49 @@
+<mat-form-field class="filter">
+  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+</mat-form-field>
+
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource" matSort>
+
+    <!-- Number Column -->
+    <ng-container matColumnDef="number">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Number </th>
+      <td mat-cell *matCellDef="let row"> {{row.number}} </td>
+    </ng-container>
+
+    <!-- Type Column -->
+    <ng-container matColumnDef="type">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Type </th>
+      <td mat-cell *matCellDef="let row"> {{row.type}} </td>
+    </ng-container>
+
+    <!-- Location Column -->
+    <ng-container matColumnDef="location">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Location </th>
+      <td mat-cell *matCellDef="let row"> {{row.location}} </td>
+    </ng-container>
+
+    <!-- isBroken Column -->
+    <ng-container matColumnDef="broken">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> is Broken </th>
+      <td mat-cell *matCellDef="let row" style="text-align: center">
+        <div [ngClass]="{'amount-income': row.broken, 'amount-expense': !row.broken}">
+          {{row.broken ? 'NO':'YES'}}
+        </div>
+      </td>
+    </ng-container>
+
+    <!-- for Railroad Column -->
+    <ng-container matColumnDef="railroad">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> for Railroad </th>
+      <td mat-cell *matCellDef="let row"> {{row.railroad ? 'YES':'NO'}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+    </tr>
+  </table>
+
+  <mat-paginator [pageSizeOptions]="[10, 25, 100]"></mat-paginator>
+
+</div>
