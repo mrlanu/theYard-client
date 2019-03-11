@@ -1,33 +1,25 @@
 <mat-nav-list>
   <div style="height: 70px"></div>
   <a mat-list-item
-     routerLink="/signup"
+     routerLink="/dashboard/trailers-list"
      routerLinkActive="active"
      (click)="onClose()"
      *ngIf="!isAuth">
-    <mat-icon>face</mat-icon>
-    <span class="nav-caption">&nbsp;&nbsp;Signup</span>
+    <mat-icon>list</mat-icon>
+    <span class="nav-caption">&nbsp;&nbsp;Trailers</span>
   </a>
   <a mat-list-item
+     (click)="onLogout()"
+     *ngIf="!isAuth">
+    <mat-icon>exit_to_app</mat-icon>
+    <span class="nav-caption">&nbsp;&nbsp;Logout</span>
+  </a>
+  <!--<a mat-list-item
      routerLink="/login"
      routerLinkActive="active"
      (click)="onClose()"
      *ngIf="!isAuth">
     <mat-icon>input</mat-icon>
     <span class="nav-caption">&nbsp;&nbsp;Login</span>
-  </a>
-  <a mat-list-item
-     routerLink="/dashboard/test"
-     routerLinkActive="active"
-     (click)="onClose()"
-     *ngIf="isAuth">
-    <mat-icon>fitness_center</mat-icon>
-    <span class="nav-caption">&nbsp;&nbsp;Training</span>
-  </a>
-  <mat-list-item *ngIf="isAuth">
-    <button mat-icon-button (click)="onLogout()">
-      <mat-icon>eject</mat-icon>
-      <span class="nav-caption">Logout</span>
-    </button>
-  </mat-list-item>
+  </a>-->
 </mat-nav-list>

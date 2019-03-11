@@ -1,8 +1,9 @@
 export interface Trailer {
   id: number;
-  number: number;
+  number: string;
   type: string;
   location: string;
   broken: boolean;
+  available: boolean;
   railroad: boolean;
 }

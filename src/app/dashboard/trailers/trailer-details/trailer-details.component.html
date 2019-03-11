@@ -1,0 +1,32 @@
+<mat-card class="trailer-card" style="margin: auto">
+  <mat-card-header>
+    <div mat-card-avatar class="trailer-header-image"></div>
+    <mat-card-title>Trailer: {{ trailer.number }}</mat-card-title>
+    <mat-card-subtitle>{{ trailer.location }}</mat-card-subtitle>
+    <button class="button-back"mat-mini-fab (click)="onBack()">
+      <mat-icon>arrow_back</mat-icon>
+    </button>
+  </mat-card-header>
+  <img mat-card-image [src]="trailer.type === 'Reefer' ? '/assets/img/reefer.jpg' : '/assets/img/dryvan.jpg'" alt="Photo of a Shiba Inu">
+  <mat-card-content>
+    <p>
+      The trailer number {{ trailer.number }}, type {{ trailer.type }} is {{ trailer.available ? '':'not'}}
+      available.
+    </p>
+    <p>
+      This trailer is {{ trailer.railroad ? '':'not'}} for railroad.
+    </p>
+  </mat-card-content>
+  <mat-card-actions style="text-align: center">
+    <div>
+      <button class="buttons" mat-raised-button color="accent" [disabled]="!trailer.available">PICK UP</button>
+      <button class="buttons" mat-raised-button color="accent">DROP</button>
+      <button class="buttons" mat-raised-button color="accent" [disabled]="!trailer.available">RESERVE</button>
+    </div>
+    <div style="padding-top: 8px">
+      <button class="buttons" mat-raised-button color="accent">BREAKDOWN</button>
+      <button class="buttons" mat-raised-button color="accent">FIX</button>
+      <button class="buttons" mat-raised-button color="accent">LOGS</button>
+    </div>
+  </mat-card-actions>
+</mat-card>
