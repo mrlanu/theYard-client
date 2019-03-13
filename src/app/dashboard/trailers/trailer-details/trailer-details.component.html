@@ -25,7 +25,7 @@
     </div>
     <div style="padding-top: 8px">
       <button class="buttons" mat-raised-button color="accent">BREAKDOWN</button>
-      <button class="buttons" mat-raised-button color="accent">FIX</button>
+      <button class="buttons" mat-raised-button color="accent" [disabled]="!trailer.broken">FIX</button>
       <button class="buttons" mat-raised-button color="accent">LOGS</button>
     </div>
   </mat-card-actions>

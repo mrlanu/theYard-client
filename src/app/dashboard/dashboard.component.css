@@ -29,3 +29,10 @@ mat-sidenav {
   padding: 0;
   margin: 0;
 }
+
+.current-trailer {
+  padding: 8px;
+  color: #FFA726;
+  font-weight: bold;
+  margin-left: 20px;
+}
