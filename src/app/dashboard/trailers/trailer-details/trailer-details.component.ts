@@ -1,8 +1,8 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Subscription} from 'rxjs';
 import {ActivatedRoute, Params, Router} from '@angular/router';
-import {TrailerService} from '../../../trailer.service';
 import {Trailer} from '../../../models/trailer.model';
+import {HttpService} from '../../../http.service';
 
 @Component({
   selector: 'app-trailer-details',
@@ -14,14 +14,14 @@ export class TrailerDetailsComponent implements OnInit, OnDestroy {
   trailer: Trailer;
   componentSubs: Subscription[] = [];
 
-  constructor(private trailerService: TrailerService,
+  constructor(private httpService: HttpService,
               private router: Router,
               private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.componentSubs.push(this.route.params
       .subscribe((params: Params) => {
-        this.trailer = this.trailerService.trailers.find(trail => trail.number === params['trailerNumber']);
+        this.trailer = this.httpService.getAllTrailers().find(trail => trail.number === params['trailerNumber']);
       }));
   }
 

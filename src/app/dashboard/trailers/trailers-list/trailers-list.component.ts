@@ -1,9 +1,9 @@
 import {AfterViewInit, Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
 import {Trailer} from '../../../models/trailer.model';
-import {TrailerService} from '../../../trailer.service';
 import {Subscription} from 'rxjs';
 import {ActivatedRoute, Router} from '@angular/router';
+import {HttpService} from '../../../http.service';
 
 @Component({
   selector: 'app-trailers-list',
@@ -18,14 +18,14 @@ export class TrailersListComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild(MatSort) sort: MatSort;
   componentSubs: Subscription[] = [];
 
-  constructor(private trailersService: TrailerService, private router: Router, private route: ActivatedRoute) { }
+  constructor(private httpService: HttpService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.componentSubs.push(this.trailersService.trailersChanged
+    this.componentSubs.push(this.httpService.trailersChanged
       .subscribe((trailers: Trailer[]) => {
       this.dataSource.data = trailers;
     }));
-    this.trailersService.getTrailers();
+    this.httpService.fetchAllTrailersByCompanyId(1);
 
     this.dataSource.paginator = this.paginator;
   }

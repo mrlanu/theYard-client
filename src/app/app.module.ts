@@ -19,8 +19,8 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {AuthService} from './auth/auth.service';
 import {AuthGuard} from './auth/auth.guard';
 import { TrailersListComponent } from './dashboard/trailers/trailers-list/trailers-list.component';
-import {TrailerService} from './trailer.service';
 import { TrailerDetailsComponent } from './dashboard/trailers/trailer-details/trailer-details.component';
+import {HttpService} from './http.service';
 
 @NgModule({
   declarations: [
@@ -43,7 +43,8 @@ import { TrailerDetailsComponent } from './dashboard/trailers/trailer-details/tr
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [TrailerService, UiService, AuthService, AuthGuard, {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}],
+  providers: [UiService, AuthService, AuthGuard, HttpService,
+    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
