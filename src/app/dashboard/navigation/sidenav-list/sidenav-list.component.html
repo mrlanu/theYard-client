@@ -9,6 +9,14 @@
     <span class="nav-caption">&nbsp;&nbsp;Trailers</span>
   </a>
   <a mat-list-item
+     routerLink="/dashboard/trailer-edit"
+     routerLinkActive="active"
+     (click)="onClose()"
+     *ngIf="!isAuth">
+    <mat-icon>list</mat-icon>
+    <span class="nav-caption">&nbsp;&nbsp;New trailer</span>
+  </a>
+  <a mat-list-item
      (click)="onLogout()"
      *ngIf="!isAuth">
     <mat-icon>exit_to_app</mat-icon>

@@ -1,4 +1,4 @@
-<mat-card class="trailer-card" style="margin: auto">
+<mat-card class="trailer-card">
   <mat-card-header>
     <div mat-card-avatar class="trailer-header-image"></div>
     <mat-card-title>Trailer: {{ trailer.number }}</mat-card-title>
@@ -7,7 +7,7 @@
       <mat-icon>arrow_back</mat-icon>
     </button>
   </mat-card-header>
-  <img mat-card-image [src]="trailer.type === 'Reefer' ? '/assets/img/reefer.jpg' : '/assets/img/dryvan.jpg'" alt="Photo of a Shiba Inu">
+  <img mat-card-image [src]="trailer.type === 'REEFER' ? '/assets/img/reefer.jpg' : '/assets/img/dryvan.jpg'" alt="Photo of a Shiba Inu">
   <mat-card-content>
     <p>
       The trailer number {{ trailer.number }}, type {{ trailer.type }} is {{ trailer.available ? '':'not'}}

@@ -1,0 +1,48 @@
+<mat-card class="trailer-card">
+  <mat-card-header>
+    <mat-card-title>
+      <div>New Trailer</div>
+    </mat-card-title>
+  </mat-card-header>
+  <mat-divider></mat-divider>
+  <mat-card-content>
+    <div style="margin-top: 15px">
+      <form [formGroup]="trailerForm" (ngSubmit)="onSubmit()" fxLayout="column" fxLayoutAlign="center center">
+
+        <mat-form-field>
+          <input type="text" placeholder="Number" formControlName="number" matInput>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-select placeholder="Type" formControlName="type" required>
+            <mat-option *ngFor="let type of types" [value]="type.name">
+              {{ type.name }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-select placeholder="Location" formControlName="location" required>
+            <mat-option *ngFor="let location of locations" [value]="location.name">
+              {{ location.name }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <hr>
+
+        <div fxLayout fxLayoutGap="10px">
+          <mat-checkbox formControlName="broken" labelPosition="before">Broken ?</mat-checkbox>
+          <mat-checkbox formControlName="railroad" labelPosition="before">for Railroad ?</mat-checkbox>
+          <mat-checkbox formControlName="available" labelPosition="before">Available ?</mat-checkbox>
+        </div>
+
+        <div style="padding-top: 30px; padding-right: 15px" fxFlexAlign="end">
+          <button type="submit" mat-raised-button color="primary" [disabled]="trailerForm.invalid || trailerForm.untouched">
+            Save
+          </button>
+        </div>
+      </form>
+    </div>
+  </mat-card-content>
+</mat-card>

@@ -27,4 +27,12 @@ export class HttpService {
   getAllTrailers() {
     return this.trailers.slice();
   }
+
+  createNewTrailer(trailer: Trailer) {
+    const url = `${this.baseUrl}/trailers`;
+    this.httpClient.post(url, trailer).subscribe((trailer: Trailer) => {
+      console.log('Saved -');
+      console.log(trailer);
+    });
+  }
 }

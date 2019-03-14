@@ -21,6 +21,7 @@ import {AuthGuard} from './auth/auth.guard';
 import { TrailersListComponent } from './dashboard/trailers/trailers-list/trailers-list.component';
 import { TrailerDetailsComponent } from './dashboard/trailers/trailer-details/trailer-details.component';
 import {HttpService} from './http.service';
+import { TrailerEditComponent } from './dashboard/trailers/trailer-edit/trailer-edit.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import {HttpService} from './http.service';
     LoginComponent,
     TrailersListComponent,
     TrailerDetailsComponent,
+    TrailerEditComponent,
   ],
   imports: [
     MaterialModule,
