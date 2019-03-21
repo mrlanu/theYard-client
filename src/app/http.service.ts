@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient, HttpParams} from '@angular/common/http';
 import {environment} from '../environments/environment';
 import {Subject} from 'rxjs';
@@ -6,6 +6,9 @@ import {Trailer} from './models/trailer.model';
 
 @Injectable()
 export class HttpService {
+
+  currentTrailer: Trailer;
+  currentTrailerChanged = new Subject<Trailer>();
 
   trailersChanged = new Subject<Trailer[]>();
   private trailers: Trailer[] = [];
@@ -30,9 +33,17 @@ export class HttpService {
 
   createNewTrailer(trailer: Trailer) {
     const url = `${this.baseUrl}/trailers`;
-    this.httpClient.post(url, trailer).subscribe((trailer: Trailer) => {
+    this.httpClient.post(url, trailer).subscribe((trlr: Trailer) => {
       console.log('Saved -');
-      console.log(trailer);
+      console.log(trlr);
     });
+  }
+
+  getCurrentTrailer() {
+    this.httpClient.get(`${this.baseUrl}/user/trailer`)
+      .subscribe((trailer: Trailer) => {
+        this.currentTrailer = trailer;
+        this.currentTrailerChanged.next(trailer);
+      });
   }
 }

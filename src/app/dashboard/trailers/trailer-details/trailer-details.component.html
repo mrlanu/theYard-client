@@ -20,7 +20,7 @@
   <mat-card-actions style="text-align: center">
     <div>
       <button class="buttons" mat-raised-button color="accent" [disabled]="!trailer.available">PICK UP</button>
-      <button class="buttons" mat-raised-button color="accent">DROP</button>
+      <button [disabled]="currentTrailer.number !== trailer.number" class="buttons" mat-raised-button color="accent">DROP</button>
       <button class="buttons" mat-raised-button color="accent" [disabled]="!trailer.available">RESERVE</button>
     </div>
     <div style="padding-top: 8px">

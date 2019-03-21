@@ -5,15 +5,15 @@ import {Router} from '@angular/router';
 import {environment} from '../../environments/environment';
 import {UiService} from '../shared/ui.service';
 import {Subject} from 'rxjs';
-import {UserInfo} from '../models/user-info.model';
+import {UserInfo} from './user.model';
 
 @Injectable()
 export class AuthService {
 
   baseUrl = environment.baseUrl;
-  userChange = new Subject<UserInfo>();
   private isAuthenticated = false;
   loggedUser: UserInfo;
+  loggedUserChanged = new Subject<UserInfo>();
 
   constructor(private router: Router,
               private httpClient: HttpClient,
@@ -55,6 +55,7 @@ export class AuthService {
     this.uiService.isLoadingChanged.next(false);
     this.isAuthenticated = true;
     this.uiService.openSnackBar('Logging successfully.', null, 5000);
+    this.getLoggedInUser();
     this.router.navigate(['dashboard', 'trailers-list']);
   }
 
@@ -84,10 +85,10 @@ export class AuthService {
   }
 
   getLoggedInUser() {
-    this.httpClient.get(this.baseUrl + '/user')
+    this.httpClient.get(`${this.baseUrl}/user`)
       .subscribe((user: UserInfo) => {
         this.loggedUser = user;
-      this.userChange.next(user);
+      this.loggedUserChanged.next(user);
     });
   }
 }
