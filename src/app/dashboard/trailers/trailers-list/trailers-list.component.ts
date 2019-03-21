@@ -44,7 +44,6 @@ export class TrailersListComponent implements OnInit, AfterViewInit, OnDestroy {
 
   onSelectTrailer(trailer: Trailer) {
     this.router.navigate(['dashboard', 'trailer-details', trailer.number]);
-
   }
 
   ngOnDestroy(): void {

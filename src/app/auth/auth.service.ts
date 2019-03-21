@@ -89,6 +89,7 @@ export class AuthService {
       .subscribe((user: UserInfo) => {
         this.loggedUser = user;
       this.loggedUserChanged.next(user);
+      console.log(this.loggedUser);
     });
   }
 }
