@@ -20,11 +20,12 @@
   <mat-card-actions style="text-align: center">
     <div>
       <button class="buttons" mat-raised-button color="accent"
-              [disabled]="!trailer.available || currentTrailer.number === trailer.number || currentTrailer">PICK UP</button>
+              [disabled]="!trailer.available || currentTrailerNumber === trailer.number || currentTrailerNumber">PICK UP</button>
       <button class="buttons" mat-raised-button color="accent"
-              [disabled]="currentTrailer.number !== trailer.number">DROP</button>
+              [disabled]="currentTrailerNumber !== trailer.number"
+              (click)="onDropTrailer()">DROP</button>
       <button class="buttons" mat-raised-button color="accent"
-              [disabled]="!trailer.available || currentTrailer.number === trailer.number">RESERVE</button>
+              [disabled]="!trailer.available || currentTrailerNumber === trailer.number">RESERVE</button>
     </div>
     <div style="padding-top: 8px">
       <button class="buttons" mat-raised-button color="accent">BREAKDOWN</button>

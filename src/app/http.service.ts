@@ -7,8 +7,8 @@ import {Trailer} from './models/trailer.model';
 @Injectable()
 export class HttpService {
 
-  currentTrailer: Trailer;
-  currentTrailerChanged = new Subject<Trailer>();
+  currentTrailerNumber = '';
+  currentTrailerNumberChanged = new Subject<string>();
 
   trailersChanged = new Subject<Trailer[]>();
   private trailers: Trailer[] = [];
@@ -34,16 +34,23 @@ export class HttpService {
   createNewTrailer(trailer: Trailer) {
     const url = `${this.baseUrl}/trailers`;
     this.httpClient.post(url, trailer).subscribe((trlr: Trailer) => {
-      console.log('Saved -');
-      console.log(trlr);
     });
   }
 
   getCurrentTrailer() {
-    this.httpClient.get(`${this.baseUrl}/user/trailer`)
+    this.httpClient.get(`${this.baseUrl}/trailers/user`)
       .subscribe((trailer: Trailer) => {
-        this.currentTrailer = trailer;
-        this.currentTrailerChanged.next(trailer);
+        if (trailer) {
+          this.currentTrailerNumber = trailer.number;
+        } else {
+          this.currentTrailerNumber = '';
+        }
+        this.currentTrailerNumberChanged.next(this.currentTrailerNumber);
       });
+  }
+
+  dropCurrentTrailer() {
+    this.httpClient.get(`${this.baseUrl}/trailers/drop`)
+      .subscribe(() => this.getCurrentTrailer());
   }
 }

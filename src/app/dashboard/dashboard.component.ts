@@ -21,11 +21,9 @@ export class DashboardComponent implements OnInit, OnDestroy {
               private router: Router) { }
 
   ngOnInit() {
-    this.componentSubs.push(this.httpService.currentTrailerChanged
-      .subscribe((trailer: Trailer) => {
-        if (trailer) {
-          this.currentTrailerNumber = trailer.number;
-        }
+    this.componentSubs.push(this.httpService.currentTrailerNumberChanged
+      .subscribe((trailerNumber: string) => {
+          this.currentTrailerNumber = trailerNumber;
     }));
     this.httpService.getCurrentTrailer();
   }

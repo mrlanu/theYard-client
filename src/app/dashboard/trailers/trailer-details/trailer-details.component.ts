@@ -11,7 +11,7 @@ import {HttpService} from '../../../http.service';
 })
 export class TrailerDetailsComponent implements OnInit, OnDestroy {
 
-  currentTrailer: Trailer;
+  currentTrailerNumber = '';
   trailer: Trailer;
   componentSubs: Subscription[] = [];
 
@@ -24,11 +24,19 @@ export class TrailerDetailsComponent implements OnInit, OnDestroy {
       .subscribe((params: Params) => {
         this.trailer = this.httpService.getAllTrailers().find(trail => trail.number === params['trailerNumber']);
       }));
-    this.currentTrailer = this.httpService.currentTrailer;
+    this.componentSubs.push(this.httpService.currentTrailerNumberChanged
+      .subscribe((trailerNumber: string) => {
+        this.currentTrailerNumber = trailerNumber;
+    }));
+    this.httpService.getCurrentTrailer();
   }
 
   onBack() {
     this.router.navigate(['dashboard', 'trailers-list']);
+  }
+
+  onDropTrailer() {
+    this.httpService.dropCurrentTrailer();
   }
 
   ngOnDestroy(): void {
