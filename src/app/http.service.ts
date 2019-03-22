@@ -53,4 +53,10 @@ export class HttpService {
     this.httpClient.get(`${this.baseUrl}/trailers/drop`)
       .subscribe(() => this.getCurrentTrailer());
   }
+
+  pickUpTrailer(trailerId: number) {
+    const params = new HttpParams().set('trailerId', trailerId.toString());
+    this.httpClient.get(`${this.baseUrl}/trailers/pickup`, {params})
+      .subscribe(() => this.getCurrentTrailer());
+  }
 }

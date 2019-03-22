@@ -20,7 +20,8 @@
   <mat-card-actions style="text-align: center">
     <div>
       <button class="buttons" mat-raised-button color="accent"
-              [disabled]="!trailer.available || currentTrailerNumber === trailer.number || currentTrailerNumber">PICK UP</button>
+              [disabled]="!trailer.available || currentTrailerNumber === trailer.number || currentTrailerNumber !== ''"
+              (click)="onPickUpTrailer(trailer.id)">PICK UP</button>
       <button class="buttons" mat-raised-button color="accent"
               [disabled]="currentTrailerNumber !== trailer.number"
               (click)="onDropTrailer()">DROP</button>

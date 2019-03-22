@@ -35,6 +35,10 @@ export class TrailerDetailsComponent implements OnInit, OnDestroy {
     this.router.navigate(['dashboard', 'trailers-list']);
   }
 
+  onPickUpTrailer(trailerId: number) {
+    this.httpService.pickUpTrailer(trailerId);
+  }
+
   onDropTrailer() {
     this.httpService.dropCurrentTrailer();
   }
