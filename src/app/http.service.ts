@@ -50,10 +50,12 @@ export class HttpService {
       });
   }
 
-  dropCurrentTrailer() {
-    this.httpClient.get(`${this.baseUrl}/trailers/drop`)
-      .subscribe(() => this.getCurrentTrailer());
-    this.fetchAllTrailersByCompanyId(1);
+  dropCurrentTrailer(trailer: Trailer) {
+    this.httpClient.post(`${this.baseUrl}/trailers/drop`, trailer)
+      .subscribe(() => {
+        this.getCurrentTrailer();
+        this.fetchAllTrailersByCompanyId(1);
+      });
   }
 
   pickUpTrailer(trailerId: number) {
