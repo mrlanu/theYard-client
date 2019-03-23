@@ -33,7 +33,7 @@ export class TrailerEditComponent implements OnInit {
     {id: 1, name: 'Addison, IL'},
     {id: 2, name: 'Portland, OR'},
     {id: 3, name: 'Renton, WA'}
-  ]
+  ];
 
   constructor(private httpService: HttpService, private router: Router) { }
 

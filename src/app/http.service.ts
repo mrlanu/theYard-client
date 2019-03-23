@@ -53,6 +53,7 @@ export class HttpService {
   dropCurrentTrailer() {
     this.httpClient.get(`${this.baseUrl}/trailers/drop`)
       .subscribe(() => this.getCurrentTrailer());
+    this.fetchAllTrailersByCompanyId(1);
   }
 
   pickUpTrailer(trailerId: number) {

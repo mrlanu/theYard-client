@@ -3,6 +3,8 @@ import {Subscription} from 'rxjs';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 import {Trailer} from '../../../models/trailer.model';
 import {HttpService} from '../../../http.service';
+import {MatDialog} from '@angular/material';
+import {DropDialogComponent} from './drop-dialog/drop-dialog.component';
 
 @Component({
   selector: 'app-trailer-details',
@@ -17,7 +19,8 @@ export class TrailerDetailsComponent implements OnInit, OnDestroy {
 
   constructor(private httpService: HttpService,
               private router: Router,
-              private route: ActivatedRoute) { }
+              private route: ActivatedRoute,
+              private dialog: MatDialog) { }
 
   ngOnInit() {
     this.componentSubs.push(this.route.params
@@ -40,7 +43,17 @@ export class TrailerDetailsComponent implements OnInit, OnDestroy {
   }
 
   onDropTrailer() {
-    this.httpService.dropCurrentTrailer();
+    const dialogRef = this.dialog.open(DropDialogComponent, {
+      width: '300px',
+      data: {trailerNumber: this.currentTrailerNumber}
+    });
+    dialogRef.afterClosed()
+      .subscribe(dropInfo => {
+        if (dropInfo) {
+          this.httpService.dropCurrentTrailer();
+          this.router.navigate(['dashboard', 'trailers-list']);
+        }
+      });
   }
 
   ngOnDestroy(): void {

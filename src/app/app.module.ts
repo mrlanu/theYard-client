@@ -22,6 +22,7 @@ import { TrailersListComponent } from './dashboard/trailers/trailers-list/traile
 import { TrailerDetailsComponent } from './dashboard/trailers/trailer-details/trailer-details.component';
 import {HttpService} from './http.service';
 import { TrailerEditComponent } from './dashboard/trailers/trailer-edit/trailer-edit.component';
+import { DropDialogComponent } from './dashboard/trailers/trailer-details/drop-dialog/drop-dialog.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { TrailerEditComponent } from './dashboard/trailers/trailer-edit/trailer-
     TrailersListComponent,
     TrailerDetailsComponent,
     TrailerEditComponent,
+    DropDialogComponent,
   ],
   imports: [
     MaterialModule,
@@ -47,6 +49,9 @@ import { TrailerEditComponent } from './dashboard/trailers/trailer-edit/trailer-
   ],
   providers: [UiService, AuthService, AuthGuard, HttpService,
     {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [
+    DropDialogComponent
+  ]
 })
 export class AppModule { }
