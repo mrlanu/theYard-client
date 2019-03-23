@@ -29,10 +29,10 @@ export class AuthService {
   registerUser(authData: AuthData) {
     this.httpClient.post(this.baseUrl + '/signup', authData).subscribe(user => {
       this.uiService.isLoadingChanged.next(false);
-      this.uiService.openSnackBar('Register successfully, please Login', null, 5000);
+      this.uiService.openSnackBar('Register successfully, please Login', null, 3000);
       this.uiService.isLoginChanged.next(true);
     }, err => {
-      this.uiService.openSnackBar(err.error.message, null, 5000);
+      this.uiService.openSnackBar(err.error.message, null, 3000);
       this.uiService.isLoadingChanged.next(false);
     });
   }
@@ -54,7 +54,7 @@ export class AuthService {
   authSuccessfully() {
     this.uiService.isLoadingChanged.next(false);
     this.isAuthenticated = true;
-    this.uiService.openSnackBar('Logging successfully.', null, 5000);
+    this.uiService.openSnackBar('Logging successfully.', null, 3000);
     this.getLoggedInUser();
     this.router.navigate(['dashboard', 'trailers-list']);
   }
@@ -79,7 +79,7 @@ export class AuthService {
         AuthService.saveToken(token);
         this.authSuccessfully();
       }, err => {
-        this.uiService.openSnackBar('Invalid username or password', null, 5000);
+        this.uiService.openSnackBar('Invalid username or password', null, 3000);
         this.uiService.isLoadingChanged.next(false);
       });
   }

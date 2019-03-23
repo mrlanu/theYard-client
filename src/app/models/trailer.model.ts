@@ -1,3 +1,5 @@
+import {User} from '../auth/user.model';
+
 export interface Trailer {
   id: number;
   companyId: number;
@@ -7,4 +9,5 @@ export interface Trailer {
   broken: boolean;
   available: boolean;
   railroad: boolean;
+  user: User;
 }

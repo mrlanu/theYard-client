@@ -15,7 +15,6 @@ export interface UserInfo {
   occupation: string;
   active: boolean;
   roles: Role[];
-  trailer: Trailer;
 }
 
 export interface Role {

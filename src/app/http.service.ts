@@ -34,6 +34,7 @@ export class HttpService {
   createNewTrailer(trailer: Trailer) {
     const url = `${this.baseUrl}/trailers`;
     this.httpClient.post(url, trailer).subscribe((trlr: Trailer) => {
+      this.fetchAllTrailersByCompanyId(1);
     });
   }
 

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
 import {HttpService} from '../../../http.service';
+import {Router} from '@angular/router';
 
 export interface TrailerType {
   id: number;
@@ -34,7 +35,7 @@ export class TrailerEditComponent implements OnInit {
     {id: 3, name: 'Renton, WA'}
   ]
 
-  constructor(private httpService: HttpService) { }
+  constructor(private httpService: HttpService, private router: Router) { }
 
   ngOnInit() {
     this.initForm();
@@ -49,12 +50,14 @@ export class TrailerEditComponent implements OnInit {
       location: new FormControl(),
       broken: new FormControl(false),
       railroad: new FormControl(false),
-      available: new FormControl(true)
+      available: new FormControl(true),
+      user: new FormControl(null)
     });
   }
 
   onSubmit() {
     this.httpService.createNewTrailer(this.trailerForm.value);
+    this.router.navigate(['dashboard', 'trailers-list']);
   }
 
 }
