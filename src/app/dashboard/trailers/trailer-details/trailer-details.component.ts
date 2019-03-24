@@ -13,7 +13,7 @@ import {DropDialogComponent} from './drop-dialog/drop-dialog.component';
 })
 export class TrailerDetailsComponent implements OnInit, OnDestroy {
 
-  currentTrailerNumber = '';
+  currentTrailer: Trailer;
   trailer: Trailer;
   componentSubs: Subscription[] = [];
 
@@ -27,11 +27,11 @@ export class TrailerDetailsComponent implements OnInit, OnDestroy {
       .subscribe((params: Params) => {
         this.trailer = this.httpService.getAllTrailers().find(trail => trail.id === +params['trailerId']);
       }));
-    this.componentSubs.push(this.httpService.currentTrailerNumberChanged
-      .subscribe((trailerNumber: string) => {
-        this.currentTrailerNumber = trailerNumber;
+    this.componentSubs.push(this.httpService.currentTrailerChanged
+      .subscribe((trailer: Trailer) => {
+        this.currentTrailer = trailer;
     }));
-    this.httpService.getCurrentTrailer();
+    this.httpService.fetchCurrentTrailer();
   }
 
   onBack() {
@@ -45,7 +45,7 @@ export class TrailerDetailsComponent implements OnInit, OnDestroy {
   onDropTrailer() {
     const dialogRef = this.dialog.open(DropDialogComponent, {
       width: '300px',
-      data: {trailerNumber: this.currentTrailerNumber}
+      data: {trailerNumber: this.currentTrailer.number}
     });
     dialogRef.afterClosed()
       .subscribe(dropInfo => {

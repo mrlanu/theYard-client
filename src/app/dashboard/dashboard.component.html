@@ -16,10 +16,10 @@
 
 <footer class="my-footer">
   <div fxFlex fxLayout fxLayoutAlign="space-between">
-    <div class="current-trailer" *ngIf="currentTrailerNumber !== ''">Current trailer:&nbsp;&nbsp;
-      <span><button mat-stroked-button color="accent" (click)="onSelectTrailer(currentTrailerNumber)">{{ currentTrailerNumber }}</button></span>
+    <div class="current-trailer" *ngIf="currentTrailer?.number">Current trailer:&nbsp;&nbsp;
+      <span><button mat-stroked-button color="accent" (click)="onSelectTrailer(currentTrailer.id)">{{ currentTrailer?.number }}</button></span>
     </div>
-    <div *ngIf="currentTrailerNumber === ''" style="color: #004D40">.</div>
+    <div *ngIf="!currentTrailer?.number" style="color: #004D40">.</div>
     <button mat-raised-button color="accent" (click)="onLogOut()">Logout</button>
   </div>
 </footer>

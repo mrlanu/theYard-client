@@ -13,7 +13,7 @@ import {Router} from '@angular/router';
 })
 export class DashboardComponent implements OnInit, OnDestroy {
 
-  currentTrailerNumber = '';
+  currentTrailer: Trailer;
   componentSubs: Subscription[] = [];
 
   constructor(private httpService: HttpService,
@@ -21,15 +21,15 @@ export class DashboardComponent implements OnInit, OnDestroy {
               private router: Router) { }
 
   ngOnInit() {
-    this.componentSubs.push(this.httpService.currentTrailerNumberChanged
-      .subscribe((trailerNumber: string) => {
-          this.currentTrailerNumber = trailerNumber;
+    this.componentSubs.push(this.httpService.currentTrailerChanged
+      .subscribe((trailer: Trailer) => {
+          this.currentTrailer = trailer;
     }));
-    this.httpService.getCurrentTrailer();
+    this.httpService.fetchCurrentTrailer();
   }
 
-  onSelectTrailer(trailerNumber: string) {
-    this.router.navigate(['dashboard', 'trailer-details', trailerNumber]);
+  onSelectTrailer(trailerId: number) {
+    this.router.navigate(['dashboard', 'trailer-details', trailerId]);
   }
 
   onLogOut() {

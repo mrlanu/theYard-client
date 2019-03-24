@@ -8,8 +8,8 @@ import {Log} from './models/log.model';
 @Injectable()
 export class HttpService {
 
-  currentTrailerNumber = '';
-  currentTrailerNumberChanged = new Subject<string>();
+  currentTrailer: Trailer;
+  currentTrailerChanged = new Subject<Trailer>();
   logsChanged = new Subject<Log[]>();
 
   trailersChanged = new Subject<Trailer[]>();
@@ -40,22 +40,18 @@ export class HttpService {
     });
   }
 
-  getCurrentTrailer() {
+  fetchCurrentTrailer() {
     this.httpClient.get(`${this.baseUrl}/trailers/user`)
       .subscribe((trailer: Trailer) => {
-        if (trailer) {
-          this.currentTrailerNumber = trailer.number;
-        } else {
-          this.currentTrailerNumber = '';
-        }
-        this.currentTrailerNumberChanged.next(this.currentTrailerNumber);
+        this.currentTrailer = trailer;
+        this.currentTrailerChanged.next(trailer);
       });
   }
 
   dropCurrentTrailer(trailer: Trailer) {
     this.httpClient.post(`${this.baseUrl}/trailers/drop`, trailer)
       .subscribe(() => {
-        this.getCurrentTrailer();
+        this.fetchCurrentTrailer();
         this.fetchAllTrailersByCompanyId(1);
       });
   }
@@ -63,7 +59,7 @@ export class HttpService {
   pickUpTrailer(trailerId: number) {
     const params = new HttpParams().set('trailerId', trailerId.toString());
     this.httpClient.get(`${this.baseUrl}/trailers/pickup`, {params})
-      .subscribe(() => this.getCurrentTrailer());
+      .subscribe(() => this.fetchCurrentTrailer());
   }
 
   fetchLogsByTrailerId(trailerId: number) {
