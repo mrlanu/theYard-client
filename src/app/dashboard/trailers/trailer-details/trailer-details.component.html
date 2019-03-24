@@ -31,7 +31,7 @@
     <div style="padding-top: 8px">
       <button class="buttons" mat-raised-button color="accent">BREAKDOWN</button>
       <button class="buttons" mat-raised-button color="accent" [disabled]="!trailer.broken">FIX</button>
-      <button class="buttons" mat-raised-button color="accent">LOGS</button>
+      <button class="buttons" mat-raised-button color="accent" (click)="onLogs(trailer.id)">LOGS</button>
     </div>
   </mat-card-actions>
 </mat-card>

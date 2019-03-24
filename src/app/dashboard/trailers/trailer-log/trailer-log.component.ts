@@ -2,18 +2,20 @@ import {AfterViewInit, Component, OnDestroy, OnInit, ViewChild} from '@angular/c
 import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
 import {Trailer} from '../../../models/trailer.model';
 import {Subscription} from 'rxjs';
-import {ActivatedRoute, Router} from '@angular/router';
 import {HttpService} from '../../../http.service';
+import {ActivatedRoute, Params, Router} from '@angular/router';
+import {Log} from '../../../models/log.model';
 
 @Component({
-  selector: 'app-trailers-list',
-  templateUrl: './trailers-list.component.html',
-  styleUrls: ['./trailers-list.component.css']
+  selector: 'app-trailer-log',
+  templateUrl: './trailer-log.component.html',
+  styleUrls: ['./trailer-log.component.css']
 })
-export class TrailersListComponent implements OnInit, AfterViewInit, OnDestroy {
+export class TrailerLogComponent implements OnInit, AfterViewInit, OnDestroy {
 
-  displayedColumns: string[] = ['number', 'type', 'location', 'available', 'broken'];
-  dataSource = new MatTableDataSource<Trailer>();
+  trailerId: number;
+  displayedColumns: string[] = ['date', 'location', 'logAction', 'userLastName'];
+  dataSource = new MatTableDataSource<Log>();
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
   componentSubs: Subscription[] = [];
@@ -21,11 +23,15 @@ export class TrailersListComponent implements OnInit, AfterViewInit, OnDestroy {
   constructor(private httpService: HttpService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.componentSubs.push(this.httpService.trailersChanged
-      .subscribe((trailers: Trailer[]) => {
-      this.dataSource.data = trailers;
-    }));
-    this.httpService.fetchAllTrailersByCompanyId(1);
+    this.componentSubs.push(this.route.params
+      .subscribe((params: Params) => {
+        this.trailerId = params['trailerId'];
+      }));
+    this.componentSubs.push(this.httpService.logsChanged
+      .subscribe((logs: Log[]) => {
+        this.dataSource.data = logs;
+      }));
+    this.httpService.fetchLogsByTrailerId(this.trailerId);
 
     this.dataSource.paginator = this.paginator;
   }
@@ -42,8 +48,8 @@ export class TrailersListComponent implements OnInit, AfterViewInit, OnDestroy {
     }
   }
 
-  onSelectTrailer(trailer: Trailer) {
-    this.router.navigate(['dashboard', 'trailer-details', trailer.id]);
+  onBack() {
+    this.router.navigate(['dashboard', 'trailer-details', this.trailerId]);
   }
 
   ngOnDestroy(): void {
@@ -51,5 +57,6 @@ export class TrailersListComponent implements OnInit, AfterViewInit, OnDestroy {
       sub.unsubscribe();
     });
   }
+
 
 }

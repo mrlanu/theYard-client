@@ -6,13 +6,15 @@ import {AuthGuard} from './auth/auth.guard';
 import {TrailersListComponent} from './dashboard/trailers/trailers-list/trailers-list.component';
 import {TrailerDetailsComponent} from './dashboard/trailers/trailer-details/trailer-details.component';
 import {TrailerEditComponent} from './dashboard/trailers/trailer-edit/trailer-edit.component';
+import {TrailerLogComponent} from './dashboard/trailers/trailer-log/trailer-log.component';
 
 const routes: Routes = [
   {path: 'welcome-page', component: WelcomePageComponent},
   {path: 'dashboard', component: DashboardComponent, canActivateChild: [AuthGuard], children: [
       {path: 'trailers-list', component: TrailersListComponent},
-      {path: 'trailer-details/:trailerNumber', component: TrailerDetailsComponent},
+      {path: 'trailer-details/:trailerId', component: TrailerDetailsComponent},
       {path: 'trailer-edit', component: TrailerEditComponent},
+      {path: 'trailer-log/:trailerId', component: TrailerLogComponent},
     ]},
   {path: '**', redirectTo: '/welcome-page'}
 ];

@@ -3,12 +3,14 @@ import {HttpClient, HttpParams} from '@angular/common/http';
 import {environment} from '../environments/environment';
 import {Subject} from 'rxjs';
 import {Trailer} from './models/trailer.model';
+import {Log} from './models/log.model';
 
 @Injectable()
 export class HttpService {
 
   currentTrailerNumber = '';
   currentTrailerNumberChanged = new Subject<string>();
+  logsChanged = new Subject<Log[]>();
 
   trailersChanged = new Subject<Trailer[]>();
   private trailers: Trailer[] = [];
@@ -62,5 +64,13 @@ export class HttpService {
     const params = new HttpParams().set('trailerId', trailerId.toString());
     this.httpClient.get(`${this.baseUrl}/trailers/pickup`, {params})
       .subscribe(() => this.getCurrentTrailer());
+  }
+
+  fetchLogsByTrailerId(trailerId: number) {
+    const url = `${this.baseUrl}/log/${trailerId}`;
+    this.httpClient.get(url)
+      .subscribe((logs: Log[]) => {
+        this.logsChanged.next(logs);
+      });
   }
 }

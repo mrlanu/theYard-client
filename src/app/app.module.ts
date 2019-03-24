@@ -23,6 +23,7 @@ import { TrailerDetailsComponent } from './dashboard/trailers/trailer-details/tr
 import {HttpService} from './http.service';
 import { TrailerEditComponent } from './dashboard/trailers/trailer-edit/trailer-edit.component';
 import { DropDialogComponent } from './dashboard/trailers/trailer-details/drop-dialog/drop-dialog.component';
+import { TrailerLogComponent } from './dashboard/trailers/trailer-log/trailer-log.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { DropDialogComponent } from './dashboard/trailers/trailer-details/drop-d
     TrailerDetailsComponent,
     TrailerEditComponent,
     DropDialogComponent,
+    TrailerLogComponent,
   ],
   imports: [
     MaterialModule,

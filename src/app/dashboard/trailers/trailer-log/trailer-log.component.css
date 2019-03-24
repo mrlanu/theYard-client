@@ -1,0 +1,46 @@
+table {
+  width: 100%;
+}
+
+/* Column Widths */
+.mat-column-date,
+.mat-column-location {
+  width: 30%;
+}
+
+.mat-column-userLastName,
+.mat-column-logAction {
+  width: 20%;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+.filter {
+  width: 350px;
+  margin-left: 40px;
+}
+
+.button-back {
+  margin-right: 15px;
+}
+
+.trailer:hover {
+  background: #FFE0B2;
+  cursor: pointer;
+}
+
+.chip-false, .chip-true {
+  margin-left: 10px;
+  background: #FFAB91;
+  text-align: center;
+  width: 30px;
+  border-radius: 15px;
+  padding: 3px 7px;
+}
+
+.chip-true {
+  background: #80CBC4;
+}

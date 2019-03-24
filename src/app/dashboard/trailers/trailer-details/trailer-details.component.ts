@@ -25,7 +25,7 @@ export class TrailerDetailsComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.componentSubs.push(this.route.params
       .subscribe((params: Params) => {
-        this.trailer = this.httpService.getAllTrailers().find(trail => trail.number === params['trailerNumber']);
+        this.trailer = this.httpService.getAllTrailers().find(trail => trail.id === +params['trailerId']);
       }));
     this.componentSubs.push(this.httpService.currentTrailerNumberChanged
       .subscribe((trailerNumber: string) => {
@@ -55,6 +55,10 @@ export class TrailerDetailsComponent implements OnInit, OnDestroy {
           this.router.navigate(['dashboard', 'trailers-list']);
         }
       });
+  }
+
+  onLogs(trailerId: number) {
+    this.router.navigate(['dashboard', 'trailer-log', trailerId]);
   }
 
   ngOnDestroy(): void {
