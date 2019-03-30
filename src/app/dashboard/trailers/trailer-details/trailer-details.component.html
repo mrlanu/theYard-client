@@ -29,7 +29,7 @@
               [disabled]="!trailer.available || currentTrailer?.number === trailer.number">RESERVE</button>
     </div>
     <div style="padding-top: 8px">
-      <button class="buttons" mat-raised-button color="accent">BREAKDOWN</button>
+      <button class="buttons" mat-raised-button color="accent" (click)="onBreaking(trailer.id)">BREAKDOWN</button>
       <button class="buttons" mat-raised-button color="accent" [disabled]="!trailer.broken">FIX</button>
       <button class="buttons" mat-raised-button color="accent" (click)="onLogs(trailer.id)">LOGS</button>
     </div>

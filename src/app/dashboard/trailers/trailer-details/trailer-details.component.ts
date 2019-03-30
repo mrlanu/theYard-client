@@ -57,6 +57,10 @@ export class TrailerDetailsComponent implements OnInit, OnDestroy {
       });
   }
 
+  onBreaking(trailerId: number) {
+    this.router.navigate(['dashboard', 'breaking-list', trailerId]);
+  }
+
   onLogs(trailerId: number) {
     this.router.navigate(['dashboard', 'trailer-log', trailerId]);
   }

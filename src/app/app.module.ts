@@ -24,6 +24,8 @@ import {HttpService} from './http.service';
 import { TrailerEditComponent } from './dashboard/trailers/trailer-edit/trailer-edit.component';
 import { DropDialogComponent } from './dashboard/trailers/trailer-details/drop-dialog/drop-dialog.component';
 import { TrailerLogComponent } from './dashboard/trailers/trailer-log/trailer-log.component';
+import { BreakingListComponent } from './dashboard/breaking/breaking-list/breaking-list.component';
+import { BreakingDetailsComponent } from './dashboard/breaking/breaking-details/breaking-details.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +41,8 @@ import { TrailerLogComponent } from './dashboard/trailers/trailer-log/trailer-lo
     TrailerEditComponent,
     DropDialogComponent,
     TrailerLogComponent,
+    BreakingListComponent,
+    BreakingDetailsComponent,
   ],
   imports: [
     MaterialModule,

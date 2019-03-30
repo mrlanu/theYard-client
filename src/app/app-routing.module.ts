@@ -7,6 +7,8 @@ import {TrailersListComponent} from './dashboard/trailers/trailers-list/trailers
 import {TrailerDetailsComponent} from './dashboard/trailers/trailer-details/trailer-details.component';
 import {TrailerEditComponent} from './dashboard/trailers/trailer-edit/trailer-edit.component';
 import {TrailerLogComponent} from './dashboard/trailers/trailer-log/trailer-log.component';
+import {BreakingListComponent} from './dashboard/breaking/breaking-list/breaking-list.component';
+import {BreakingDetailsComponent} from './dashboard/breaking/breaking-details/breaking-details.component';
 
 const routes: Routes = [
   {path: 'welcome-page', component: WelcomePageComponent},
@@ -15,6 +17,8 @@ const routes: Routes = [
       {path: 'trailer-details/:trailerId', component: TrailerDetailsComponent},
       {path: 'trailer-edit', component: TrailerEditComponent},
       {path: 'trailer-log/:trailerId', component: TrailerLogComponent},
+      {path: 'breaking-list/:trailerId', component: BreakingListComponent},
+      {path: 'breaking-details/:breakingId', component: BreakingDetailsComponent},
     ]},
   {path: '**', redirectTo: '/welcome-page'}
 ];
