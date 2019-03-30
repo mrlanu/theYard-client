@@ -6,6 +6,8 @@ import {Router} from '@angular/router';
 export interface TrailerType {
   id: number;
   name: string;
+  short: string;
+
 }
 
 export interface Location {
@@ -25,8 +27,8 @@ export class TrailerEditComponent implements OnInit {
   trailerForm: FormGroup;
 
   types: TrailerType[] = [
-    {id: 1, name: 'DRY'},
-    {id: 2, name: 'REEFER'}
+    {id: 1, name: 'DRY', short: 'DRY'},
+    {id: 2, name: 'REEFER', short: 'REF'}
   ];
 
   locations: Location[] = [
@@ -57,6 +59,10 @@ export class TrailerEditComponent implements OnInit {
 
   onSubmit() {
     this.httpService.createNewTrailer(this.trailerForm.value);
+    this.router.navigate(['dashboard', 'trailers-list']);
+  }
+
+  onCancel() {
     this.router.navigate(['dashboard', 'trailers-list']);
   }
 

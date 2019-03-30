@@ -15,7 +15,7 @@
 
         <mat-form-field>
           <mat-select placeholder="Type" formControlName="type" required>
-            <mat-option *ngFor="let type of types" [value]="type.name">
+            <mat-option *ngFor="let type of types" [value]="type.short">
               {{ type.name }}
             </mat-option>
           </mat-select>
@@ -37,9 +37,12 @@
           <mat-checkbox formControlName="available" labelPosition="before">Available ?</mat-checkbox>
         </div>
 
-        <div style="padding-top: 30px; padding-right: 15px" fxFlexAlign="end">
+        <div style="padding-top: 30px; padding-right: 15px" fxFlexAlign="end" fxLayoutGap="10px">
           <button type="submit" mat-raised-button color="primary" [disabled]="trailerForm.invalid || trailerForm.untouched">
             Save
+          </button>
+          <button mat-mini-fab (click)="onCancel()">
+            <mat-icon>arrow_back</mat-icon>
           </button>
         </div>
       </form>
