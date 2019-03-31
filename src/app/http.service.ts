@@ -4,6 +4,7 @@ import {environment} from '../environments/environment';
 import {Subject} from 'rxjs';
 import {Trailer} from './models/trailer.model';
 import {Log} from './models/log.model';
+import {BreakingReport} from './models/breaking-report.model';
 
 @Injectable()
 export class HttpService {
@@ -11,6 +12,7 @@ export class HttpService {
   currentTrailer: Trailer;
   currentTrailerChanged = new Subject<Trailer>();
   logsChanged = new Subject<Log[]>();
+  breakingChanged = new Subject<BreakingReport[]>();
 
   trailersChanged = new Subject<Trailer[]>();
   private trailers: Trailer[] = [];
@@ -67,6 +69,14 @@ export class HttpService {
     this.httpClient.get(url)
       .subscribe((logs: Log[]) => {
         this.logsChanged.next(logs);
+      });
+  }
+
+  fetchAllBreakingByTrailerId(trailerId: number) {
+    const url = `${this.baseUrl}/breaking/${trailerId}`;
+    this.httpClient.get(url)
+      .subscribe((breaking: BreakingReport[]) => {
+        this.breakingChanged.next(breaking);
       });
   }
 }
