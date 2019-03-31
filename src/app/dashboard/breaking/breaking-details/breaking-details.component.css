@@ -1,0 +1,18 @@
+mat-card-actions {
+  padding: 0;
+}
+
+.trailer-card {
+  max-width: 400px;
+  margin: auto;
+}
+
+.button-back {
+  position: absolute;
+  right: 15px;
+  top: 20px;
+}
+
+.material-icons.md-light {
+  color: rgba(255, 255, 255, 1);
+}

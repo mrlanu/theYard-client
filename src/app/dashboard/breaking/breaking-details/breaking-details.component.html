@@ -1,3 +1,25 @@
-<p>
-  breaking-details works!
-</p>
+<mat-card class="trailer-card">
+  <mat-card-header>
+    <mat-card-title>Breaking reported:</mat-card-title>
+    <mat-card-subtitle>on {{ breaking?.date | date:'mediumDate' }} by {{ breaking?.userLastName }}</mat-card-subtitle>
+    <button class="button-back"mat-mini-fab (click)="onBack()">
+      <mat-icon>arrow_back</mat-icon>
+    </button>
+  </mat-card-header>
+
+  <mat-card-content>
+    <mat-nav-list>
+      <a mat-list-item *ngFor="let detail of breaking?.breakingDetails"
+         (click)="onSubcategorySelect(subGroup.name)">
+        <div fxFlex fxLayout fxLayoutAlign="space-between">
+          <div style="margin-left: 15px">{{ detail.kind }}</div>
+          <div>{{ detail.description }}</div>
+        </div>
+      </a>
+    </mat-nav-list>
+  </mat-card-content>
+
+  <mat-card-actions style="text-align: center">
+
+  </mat-card-actions>
+</mat-card>

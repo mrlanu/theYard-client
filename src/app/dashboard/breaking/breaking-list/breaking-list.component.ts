@@ -29,7 +29,7 @@ export class BreakingListComponent implements OnInit, AfterViewInit, OnDestroy {
       .subscribe((params: Params) => {
         this.trailerId = params['trailerId'];
       }));
-    this.componentSubs.push(this.httpService.breakingChanged
+    this.componentSubs.push(this.httpService.breakingsListChanged
       .subscribe((breaking: BreakingReport[]) => {
         this.dataSource.data = breaking;
       }));

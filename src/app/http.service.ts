@@ -12,7 +12,8 @@ export class HttpService {
   currentTrailer: Trailer;
   currentTrailerChanged = new Subject<Trailer>();
   logsChanged = new Subject<Log[]>();
-  breakingChanged = new Subject<BreakingReport[]>();
+  breakingChanged = new Subject<BreakingReport>();
+  breakingsListChanged = new Subject<BreakingReport[]>();
 
   trailersChanged = new Subject<Trailer[]>();
   private trailers: Trailer[] = [];
@@ -73,9 +74,17 @@ export class HttpService {
   }
 
   fetchAllBreakingByTrailerId(trailerId: number) {
-    const url = `${this.baseUrl}/breaking/${trailerId}`;
+    const url = `${this.baseUrl}/trailers/${trailerId}/breakings`;
     this.httpClient.get(url)
-      .subscribe((breaking: BreakingReport[]) => {
+      .subscribe((breakings: BreakingReport[]) => {
+        this.breakingsListChanged.next(breakings);
+      });
+  }
+
+  fetchBreakingById(breakingId: number) {
+    const url = `${this.baseUrl}/breakings/${breakingId}`;
+    this.httpClient.get(url)
+      .subscribe((breaking: BreakingReport) => {
         this.breakingChanged.next(breaking);
       });
   }

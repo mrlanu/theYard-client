@@ -1,6 +1,7 @@
 export interface BreakingReport {
   id: number;
   date: Date;
+  userLastName: string;
   fixed: boolean;
   fixedDate: Date;
   trailerId: number;
