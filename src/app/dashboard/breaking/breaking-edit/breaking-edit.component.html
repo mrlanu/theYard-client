@@ -1,0 +1,43 @@
+<mat-card class="trailer-card">
+  <mat-card-header>
+    <mat-card-title>
+        <div>New Breaking</div>
+        <button class="button-save" type="submit" (click)="onSubmit()" mat-raised-button color="primary">
+          Save
+        </button>
+    </mat-card-title>
+  </mat-card-header>
+  <mat-divider></mat-divider>
+  <mat-card-content>
+    <div>
+      <form [formGroup]="breakingForm">
+        <div formArrayName="breakingDetails">
+          <div class="detail-container"
+               fxLayout="column" fxLayoutAlign="center center"
+               *ngFor="let detailCtrl of getControls(); let i = index"
+               [formGroupName]="i">
+            <mat-form-field>
+              <mat-select placeholder="Kind of breaking" formControlName="kind">
+                <mat-option *ngFor="let kind of kinds" [value]="kind.name">
+                  {{ kind.name }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field>
+              <textarea rows="2" placeholder="Description" formControlName="description" matInput></textarea>
+            </mat-form-field>
+
+            <div fxFlex fxFlexAlign="end" fxLayoutGap="5px">
+              <button mat-icon-button color="accent" (click)="onAddDetail()">
+                <mat-icon>add_circle</mat-icon>
+              </button>
+              <button mat-icon-button color="warn" (click)="onDeleteDetail(i)">
+                <mat-icon>close</mat-icon>
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </mat-card-content>
+</mat-card>

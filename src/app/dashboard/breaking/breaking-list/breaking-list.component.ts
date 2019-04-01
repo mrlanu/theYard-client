@@ -54,6 +54,10 @@ export class BreakingListComponent implements OnInit, AfterViewInit, OnDestroy {
     this.router.navigate(['dashboard', 'breaking-details', breaking.id]);
   }
 
+  onNewBreaking() {
+    this.router.navigate(['dashboard', 'breaking-edit', this.trailerId]);
+  }
+
   onBack() {
     this.router.navigate(['dashboard', 'trailer-details', this.trailerId]);
   }

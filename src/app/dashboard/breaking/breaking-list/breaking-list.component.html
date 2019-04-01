@@ -2,6 +2,9 @@
   <mat-form-field class="filter" fxLayout="row" fxLayoutGap="20px">
     <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
   </mat-form-field>
+  <button class="button-back" mat-mini-fab (click)="onNewBreaking()">
+    <mat-icon>add</mat-icon>
+  </button>
   <button class="button-back"mat-mini-fab (click)="onBack()">
     <mat-icon>arrow_back</mat-icon>
   </button>

@@ -26,6 +26,7 @@ import { DropDialogComponent } from './dashboard/trailers/trailer-details/drop-d
 import { TrailerLogComponent } from './dashboard/trailers/trailer-log/trailer-log.component';
 import { BreakingListComponent } from './dashboard/breaking/breaking-list/breaking-list.component';
 import { BreakingDetailsComponent } from './dashboard/breaking/breaking-details/breaking-details.component';
+import { BreakingEditComponent } from './dashboard/breaking/breaking-edit/breaking-edit.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { BreakingDetailsComponent } from './dashboard/breaking/breaking-details/
     TrailerLogComponent,
     BreakingListComponent,
     BreakingDetailsComponent,
+    BreakingEditComponent,
   ],
   imports: [
     MaterialModule,
