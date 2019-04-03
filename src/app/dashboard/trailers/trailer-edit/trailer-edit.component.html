@@ -14,7 +14,7 @@
         </mat-form-field>
 
         <mat-form-field>
-          <mat-select placeholder="Type" formControlName="type" required>
+          <mat-select placeholder="Type" formControlName="type">
             <mat-option *ngFor="let type of types" [value]="type.short">
               {{ type.name }}
             </mat-option>
@@ -22,7 +22,7 @@
         </mat-form-field>
 
         <mat-form-field>
-          <mat-select placeholder="Location" formControlName="location" required>
+          <mat-select placeholder="Location" formControlName="location">
             <mat-option *ngFor="let location of locations" [value]="location.name">
               {{ location.name }}
             </mat-option>

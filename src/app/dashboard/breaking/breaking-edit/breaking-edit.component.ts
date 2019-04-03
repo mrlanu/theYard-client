@@ -1,5 +1,5 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {FormArray, FormControl, FormControlName, FormGroup} from '@angular/forms';
+import {FormArray, FormControl, FormControlName, FormGroup, Validators} from '@angular/forms';
 import {BreakingDetail} from '../../../models/breaking-report.model';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 import {HttpService} from '../../../http.service';
@@ -54,13 +54,11 @@ export class BreakingEditComponent implements OnInit, OnDestroy {
       fixed: new FormControl(false),
       fixedDate: new FormControl(),
       trailerId: new FormControl(this.trailerId),
-      kind: new FormControl(),
-      description: new FormControl(),
       breakingDetails: new FormArray([
         new FormGroup({
           id: new FormControl(),
-          kind: new FormControl(),
-          description: new FormControl(),
+          kind: new FormControl(null, Validators.required),
+          description: new FormControl(null, Validators.required),
           fixed: new FormControl(false),
           fixedDate: new FormControl(),
           userLastName: new FormControl(),
@@ -73,8 +71,8 @@ export class BreakingEditComponent implements OnInit, OnDestroy {
     (<FormArray>this.breakingForm.get('breakingDetails')).push(
       new FormGroup({
         id: new FormControl(),
-        kind: new FormControl(),
-        description: new FormControl(),
+        kind: new FormControl(null, Validators.required),
+        description: new FormControl(null, Validators.required),
         fixed: new FormControl(false),
         fixedDate: new FormControl(),
         userLastName: new FormControl(),
@@ -96,6 +94,7 @@ export class BreakingEditComponent implements OnInit, OnDestroy {
 
   onSubmit() {
     console.log(this.breakingForm.value);
+    this.router.navigate(['dashboard', 'breaking-list', this.trailerId]);
   }
 
   ngOnDestroy(): void {
