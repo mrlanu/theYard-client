@@ -1,12 +1,9 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {FormArray, FormControl, FormControlName, FormGroup, Validators} from '@angular/forms';
-import {BreakingDetail} from '../../../models/breaking-report.model';
+import {FormArray, FormControl, FormGroup, Validators} from '@angular/forms';
+import {BreakingReport} from '../../../models/breaking-report.model';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 import {HttpService} from '../../../http.service';
-import {MatDialog} from '@angular/material';
 import {Subscription} from 'rxjs';
-
-
 
 export interface BreakingKind {
   id: number;
@@ -93,8 +90,10 @@ export class BreakingEditComponent implements OnInit, OnDestroy {
   }
 
   onSubmit() {
-    console.log(this.breakingForm.value);
-    this.router.navigate(['dashboard', 'breaking-list', this.trailerId]);
+    this.httpService.createBreaking(this.breakingForm.value)
+      .subscribe((breaking: BreakingReport) => {
+        this.router.navigate(['dashboard', 'breaking-list', this.trailerId]);
+    });
   }
 
   ngOnDestroy(): void {

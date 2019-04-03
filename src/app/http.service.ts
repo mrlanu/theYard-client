@@ -88,4 +88,8 @@ export class HttpService {
         this.breakingChanged.next(breaking);
       });
   }
+
+  createBreaking(breaking: BreakingReport) {
+    return this.httpClient.post(`${this.baseUrl}/breaking`, breaking);
+  }
 }
