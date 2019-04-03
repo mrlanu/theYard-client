@@ -13,6 +13,13 @@ mat-card-actions {
   top: 20px;
 }
 
-.material-icons.md-light {
+.material-icons.sm-light {
   color: rgba(255, 255, 255, 1);
+}
+
+.details {
+  font-size: 14px;
+  margin-top: 3px;
+  border: 1px solid lightgrey;
+  border-radius: 15px;
 }

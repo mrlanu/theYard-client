@@ -2,6 +2,11 @@ table {
   width: 100%;
 }
 
+td, th {
+  width: 20%;
+  font-size: 12px;
+}
+
 /* Column Widths */
 .mat-column-date,
 .mat-column-location {

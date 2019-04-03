@@ -1,7 +1,9 @@
 <mat-card class="trailer-card">
   <mat-card-header>
     <mat-card-title>Breaking reported:</mat-card-title>
-    <mat-card-subtitle>on {{ breaking?.date | date:'mediumDate' }} by {{ breaking?.userLastName }}</mat-card-subtitle>
+    <mat-card-subtitle>
+      on <strong>{{ breaking?.date | date:'mediumDate' }}</strong> by <strong>{{ breaking?.userLastName }}</strong>
+    </mat-card-subtitle>
     <button class="button-back"mat-mini-fab (click)="onBack()">
       <mat-icon>arrow_back</mat-icon>
     </button>
@@ -9,13 +11,16 @@
 
   <mat-card-content>
     <mat-nav-list>
-      <a mat-list-item *ngFor="let detail of breaking?.breakingDetails"
-         (click)="onSubcategorySelect(subGroup.name)">
-        <div fxFlex fxLayout fxLayoutAlign="space-between">
-          <div style="margin-left: 15px">{{ detail.kind }}</div>
+      <div class="details" mat-list-item *ngFor="let detail of breaking?.breakingDetails">
+        <div fxFlex fxLayout fxLayoutAlign="space-between baseline">
+          <div style="margin-left: 15px">{{ detail.kind }}, </div>
           <div>{{ detail.description }}</div>
+          <button mat-icon-button color="primary"
+                  (click)="onAddDetail()">
+            <mat-icon>build</mat-icon>
+          </button>
         </div>
-      </a>
+      </div>
     </mat-nav-list>
   </mat-card-content>
 

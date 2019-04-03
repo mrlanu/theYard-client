@@ -1,19 +1,15 @@
 <mat-card class="trailer-card">
-  <mat-card-header>
-    <mat-card-title>
-        <div>New Breaking</div>
-        <button class="button-save" type="submit"
-                [disabled]="breakingForm.invalid"
-                (click)="onSubmit()" mat-raised-button color="primary">
-          Save
+  <mat-card-header style="padding-bottom: 10px" fxLayout fxLayoutAlign="space-between baseline">
+        <mat-card-title>New Breaking</mat-card-title>
+        <button class="button-back"mat-mini-fab (click)="onBack()">
+          <mat-icon>arrow_back</mat-icon>
         </button>
-    </mat-card-title>
   </mat-card-header>
   <mat-divider></mat-divider>
   <mat-card-content>
     <div>
       <form [formGroup]="breakingForm">
-        <div formArrayName="breakingDetails">
+        <div formArrayName="breakingDetails" fxLayout="column">
           <div class="detail-container"
                fxLayout="column" fxLayoutAlign="center center"
                *ngFor="let detailCtrl of getControls(); let i = index"
@@ -45,6 +41,12 @@
                 <mat-icon>close</mat-icon>
               </button>
             </div>
+          </div>
+          <div fxFlex fxFlexAlign="end">
+            <button class="button-save" type="submit"
+                    [disabled]="breakingForm.invalid"
+                    (click)="onSubmit()" mat-raised-button color="primary">Save
+            </button>
           </div>
         </div>
       </form>

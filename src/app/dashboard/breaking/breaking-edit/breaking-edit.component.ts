@@ -96,6 +96,10 @@ export class BreakingEditComponent implements OnInit, OnDestroy {
     });
   }
 
+  onBack() {
+    this.router.navigate(['dashboard', 'breaking-list', this.trailerId]);
+  }
+
   ngOnDestroy(): void {
     this.componentSubs.forEach(sub => {
       sub.unsubscribe();
