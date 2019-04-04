@@ -21,5 +21,13 @@ mat-card-actions {
   font-size: 14px;
   margin-top: 3px;
   border: 1px solid lightgrey;
-  border-radius: 15px;
+  border-radius: 12px;
+}
+
+.detail-fixed {
+  border: 1px solid #4dbf74;
+}
+
+.detail-unfixed {
+  border: 1px solid #bf5d58;
 }

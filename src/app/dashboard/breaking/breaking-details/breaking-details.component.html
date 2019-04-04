@@ -11,12 +11,15 @@
 
   <mat-card-content>
     <mat-nav-list>
-      <div class="details" mat-list-item *ngFor="let detail of breaking?.breakingDetails">
+      <div class="details"
+           [ngClass]="{'detail-fixed': detail.fixed, 'detail-unfixed': !detail.fixed}"
+           mat-list-item *ngFor="let detail of breaking?.breakingDetails">
         <div fxFlex fxLayout fxLayoutAlign="space-between baseline">
           <div style="margin-left: 15px">{{ detail.kind }}, </div>
           <div>{{ detail.description }}</div>
-          <button mat-icon-button color="primary"
-                  (click)="onAddDetail()">
+          <button mat-icon-button color="warn"
+                  (click)="onFix(breaking.id, detail.id)"
+                  [disabled]="detail.fixed">
             <mat-icon>build</mat-icon>
           </button>
         </div>

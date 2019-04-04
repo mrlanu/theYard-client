@@ -2,6 +2,10 @@ table {
   width: 100%;
 }
 
+td, th {
+  font-size: 12px;
+}
+
 /* Column Widths */
 .mat-column-date,
 .mat-column-fixedDate,
@@ -36,8 +40,8 @@ table {
   background: #FFAB91;
   text-align: center;
   width: 30px;
-  border-radius: 15px;
-  padding: 3px 7px;
+  border-radius: 10px;
+  padding: 2px 4px;
 }
 
 .chip-true {

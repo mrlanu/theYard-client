@@ -24,7 +24,7 @@ export class BreakingDetailsComponent implements OnInit, OnDestroy {
       .subscribe((params: Params) => {
         this.breakingId = params['breakingId'];
       }));
-    this.componentSubs.push(this.httpService.breakingChanged
+    this.componentSubs.push(this.httpService.breakingReportChanged
       .subscribe((breaking: BreakingReport) => {
         this.breaking = breaking;
       }));
@@ -33,6 +33,10 @@ export class BreakingDetailsComponent implements OnInit, OnDestroy {
 
   onBack() {
     this.router.navigate(['dashboard', 'breaking-list', this.breaking.trailerId]);
+  }
+
+  onFix(breakingReportId: number, breakingDetailId: number) {
+    this.httpService.fixBreakingDetailById(breakingReportId, breakingDetailId);
   }
 
   ngOnDestroy(): void {

@@ -12,7 +12,7 @@ export class HttpService {
   currentTrailer: Trailer;
   currentTrailerChanged = new Subject<Trailer>();
   logsChanged = new Subject<Log[]>();
-  breakingChanged = new Subject<BreakingReport>();
+  breakingReportChanged = new Subject<BreakingReport>();
   breakingsListChanged = new Subject<BreakingReport[]>();
 
   trailersChanged = new Subject<Trailer[]>();
@@ -85,11 +85,19 @@ export class HttpService {
     const url = `${this.baseUrl}/breakings/${breakingId}`;
     this.httpClient.get(url)
       .subscribe((breaking: BreakingReport) => {
-        this.breakingChanged.next(breaking);
+        this.breakingReportChanged.next(breaking);
       });
   }
 
   createBreaking(breaking: BreakingReport) {
     return this.httpClient.post(`${this.baseUrl}/breaking`, breaking);
+  }
+
+  fixBreakingDetailById(breakingReportId: number, breakingDetailId: number) {
+    const url = `${this.baseUrl}/breaking/fixBreakingDetail/${breakingReportId}/${breakingDetailId}`;
+    this.httpClient.get(url)
+      .subscribe((breakingReport: BreakingReport) => {
+        this.breakingReportChanged.next(breakingReport);
+      });
   }
 }
