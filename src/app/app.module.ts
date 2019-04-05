@@ -27,6 +27,7 @@ import { TrailerLogComponent } from './dashboard/trailers/trailer-log/trailer-lo
 import { BreakingListComponent } from './dashboard/breaking/breaking-list/breaking-list.component';
 import { BreakingDetailsComponent } from './dashboard/breaking/breaking-details/breaking-details.component';
 import { BreakingEditComponent } from './dashboard/breaking/breaking-edit/breaking-edit.component';
+import { ConfirmByPasswordComponent } from './shared/confirm-by-password/confirm-by-password.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { BreakingEditComponent } from './dashboard/breaking/breaking-edit/breaki
     BreakingListComponent,
     BreakingDetailsComponent,
     BreakingEditComponent,
+    ConfirmByPasswordComponent,
   ],
   imports: [
     MaterialModule,
@@ -59,7 +61,8 @@ import { BreakingEditComponent } from './dashboard/breaking/breaking-edit/breaki
     {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}],
   bootstrap: [AppComponent],
   entryComponents: [
-    DropDialogComponent
+    DropDialogComponent,
+    ConfirmByPasswordComponent
   ]
 })
 export class AppModule { }
