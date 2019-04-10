@@ -6,6 +6,11 @@ td, th {
   font-size: 12px;
 }
 
+.table-container {
+  max-width: 1000px;
+  margin: auto;
+}
+
 /* Column Widths */
 .mat-column-date,
 .mat-column-fixedDate,
@@ -23,8 +28,9 @@ td, th {
 }
 
 .filter {
-  width: 350px;
-  margin-left: 40px;
+  width: 70%;
+  max-width: 300px;
+  margin-left: 5%;
 }
 
 .button-back {

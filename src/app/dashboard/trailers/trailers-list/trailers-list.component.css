@@ -1,10 +1,16 @@
 table {
   width: 100%;
+  margin: auto;
 }
 
 td, th {
   width: 20%;
   font-size: 12px;
+}
+
+.table-container {
+  max-width: 1000px;
+  margin: auto;
 }
 
 .mat-form-field {
@@ -14,7 +20,6 @@ td, th {
 
 .filter {
   width: 300px;
-  margin-left: 40px;
 }
 
 .trailer:hover {

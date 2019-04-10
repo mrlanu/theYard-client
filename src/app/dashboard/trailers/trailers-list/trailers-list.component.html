@@ -1,8 +1,10 @@
-<mat-form-field class="filter">
-  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
-</mat-form-field>
+<div style="text-align: center">
+  <mat-form-field class="filter">
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+  </mat-form-field>
+</div>
 
-<div class="mat-elevation-z8">
+<div class="mat-elevation-z8 table-container">
   <table mat-table [dataSource]="dataSource" matSort>
 
     <!-- Number Column -->
