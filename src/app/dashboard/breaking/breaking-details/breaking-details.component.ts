@@ -5,6 +5,7 @@ import {ActivatedRoute, Params, Router} from '@angular/router';
 import {Subscription} from 'rxjs';
 import {MatDialog} from '@angular/material';
 import {ConfirmByPasswordComponent} from '../../../shared/confirm-by-password/confirm-by-password.component';
+import {UiService} from '../../../shared/ui.service';
 
 @Component({
   selector: 'app-breaking-details',
@@ -20,7 +21,8 @@ export class BreakingDetailsComponent implements OnInit, OnDestroy {
   constructor(private httpService: HttpService,
               private router: Router,
               private route: ActivatedRoute,
-              private dialog: MatDialog) { }
+              private dialog: MatDialog,
+              private uiService: UiService) { }
 
   ngOnInit() {
     this.componentSubs.push(this.route.params
@@ -45,9 +47,15 @@ export class BreakingDetailsComponent implements OnInit, OnDestroy {
     });
     dialogRef.afterClosed()
       .subscribe(pass => {
-        console.log(pass);
+        this.httpService.checkPass(pass).subscribe((result: boolean) => {
+          if (result) {
+            this.httpService.fixBreakingDetailById(breakingReportId, breakingDetailId);
+            this.uiService.openSnackBar('Breaking has been fixed', null, 3000);
+          } else {
+            this.uiService.openSnackBar('Wrong password, please try again', null, 3000);
+          }
+        });
       });
-    // this.httpService.fixBreakingDetailById(breakingReportId, breakingDetailId);
   }
 
   ngOnDestroy(): void {

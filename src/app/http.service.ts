@@ -100,4 +100,8 @@ export class HttpService {
         this.breakingReportChanged.next(breakingReport);
       });
   }
+
+  checkPass(pass: string) {
+    return this.httpClient.post(`${this.baseUrl}/checkPass`, pass);
+  }
 }
