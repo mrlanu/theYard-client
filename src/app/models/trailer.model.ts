@@ -4,6 +4,8 @@ export interface Trailer {
   id: number;
   companyId: number;
   number: string;
+  licensePlate: string;
+  annualInspectionDate: Date;
   type: string;
   location: string;
   broken: boolean;

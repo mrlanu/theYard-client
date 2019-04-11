@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroup} from '@angular/forms';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {HttpService} from '../../../http.service';
 import {Router} from '@angular/router';
 
@@ -47,9 +47,11 @@ export class TrailerEditComponent implements OnInit {
     this.trailerForm = new FormGroup({
       id: new FormControl(),
       companyId: new FormControl(),
-      number: new FormControl(),
-      type: new FormControl(),
-      location: new FormControl(),
+      number: new FormControl(null, Validators.required),
+      licensePlate: new FormControl(null, Validators.required),
+      annualInspectionDate: new FormControl(null, Validators.required),
+      type: new FormControl(null, Validators.required),
+      location: new FormControl(null, Validators.required),
       broken: new FormControl(false),
       emptyTrlr: new FormControl(true),
       railroad: new FormControl(false),

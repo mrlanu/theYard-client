@@ -2,18 +2,17 @@
   <mat-card-header>
     <div mat-card-avatar class="trailer-header-image"></div>
     <mat-card-title>Trailer: {{ trailer.number }}</mat-card-title>
-    <mat-card-subtitle>{{ trailer.location }}</mat-card-subtitle>
+    <mat-card-subtitle>License plate: {{ trailer.licensePlate }}</mat-card-subtitle>
     <button class="button-back"mat-mini-fab (click)="onBack()">
       <mat-icon>arrow_back</mat-icon>
     </button>
   </mat-card-header>
-  <img mat-card-image [src]="trailer.type === 'REF' ? '/assets/img/reefer.jpg' : '/assets/img/dryvan.jpg'" alt="Photo of a Shiba Inu">
+  <img mat-card-image [src]="trailer.type === 'REF' ? '/assets/img/reefer.jpg' : '/assets/img/dryvan.jpg'" alt="Photo of a Trailer">
   <mat-card-content>
-    <p>
-      The trailer number {{ trailer.number }}, type {{ trailer.type }} is {{ trailer.available ? '':'not'}}
-      available.
-    </p>
-    <p>
+    <div style="text-align: center">
+      Annual inspection date: <strong>{{ trailer.annualInspectionDate | date: 'MMM dd yyyy' }}</strong>
+    </div>
+    <p style="text-align: center">
       This trailer is {{ trailer.railroad ? '':'not'}} for railroad.
     </p>
   </mat-card-content>
