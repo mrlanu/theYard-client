@@ -50,7 +50,13 @@ export class TrailerDetailsComponent implements OnInit, OnDestroy {
     dialogRef.afterClosed()
       .subscribe(dropInfo => {
         if (dropInfo) {
-          this.trailer = {...this.trailer, available: true, location: dropInfo.location, user: null};
+          this.trailer = {
+            ...this.trailer,
+            available: true,
+            location: dropInfo.location,
+            user: null,
+            emptyTrlr: dropInfo.isEmpty
+          };
           this.httpService.dropCurrentTrailer(this.trailer);
           this.router.navigate(['dashboard', 'trailers-list']);
         }

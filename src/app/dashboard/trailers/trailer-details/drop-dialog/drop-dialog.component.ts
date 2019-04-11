@@ -25,7 +25,7 @@ export class DropDialogComponent implements OnInit {
     this.dropForm = new FormGroup({
       'trailerNumber': new FormControl(this.passedData.trailerNumber),
       'location': new FormControl(),
-      'isBroken': new FormControl(false)
+      'isEmpty': new FormControl(true)
     });
   }
 

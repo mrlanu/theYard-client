@@ -44,6 +44,16 @@
         </div>
     </ng-container>
 
+    <!-- isEmpty Column -->
+    <ng-container matColumnDef="emptyTrlr">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Empty </th>
+      <td mat-cell *matCellDef="let row" style="text-align: center">
+        <div [ngClass]="{'chip-true': row.emptyTrlr, 'chip-false': !row.emptyTrlr}">
+          {{row.emptyTrlr ? 'YES':'NO'}}
+        </div>
+      </td>
+    </ng-container>
+
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr class="trailer" mat-row *matRowDef="let row; columns: displayedColumns;" (click)="onSelectTrailer(row)">
     </tr>

@@ -7,6 +7,7 @@ export interface Trailer {
   type: string;
   location: string;
   broken: boolean;
+  emptyTrlr: boolean;
   available: boolean;
   railroad: boolean;
   user: User;

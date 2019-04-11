@@ -51,6 +51,7 @@ export class TrailerEditComponent implements OnInit {
       type: new FormControl(),
       location: new FormControl(),
       broken: new FormControl(false),
+      emptyTrlr: new FormControl(true),
       railroad: new FormControl(false),
       available: new FormControl(true),
       user: new FormControl(null)
