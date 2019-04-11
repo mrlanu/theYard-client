@@ -12,7 +12,7 @@ import {HttpService} from '../../../http.service';
 })
 export class TrailersListComponent implements OnInit, AfterViewInit, OnDestroy {
 
-  displayedColumns: string[] = ['number', 'type', 'location', 'emptyTrlr', 'available', 'broken'];
+  displayedColumns: string[] = ['number', 'location', 'emptyTrlr', 'broken', 'available'];
   dataSource = new MatTableDataSource<Trailer>();
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;

@@ -1,9 +1,10 @@
-<div class="filter-back" style="text-align: center">
-  <mat-form-field class="filter">
-    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
-  </mat-form-field>
+<div class="table-container">
+  <div class="filter-back" style="text-align: center">
+    <mat-form-field class="filter">
+      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+    </mat-form-field>
+  </div>
 </div>
-
 <div class="mat-elevation-z8 table-container">
   <table mat-table [dataSource]="dataSource" matSort>
 
@@ -59,6 +60,9 @@
     </tr>
   </table>
 
-  <mat-paginator [pageSizeOptions]="[10, 25, 100]"></mat-paginator>
+  <mat-paginator
+    style="border-bottom-left-radius: 10px; border-bottom-right-radius: 10px"
+    [pageSizeOptions]="[10, 25, 100]">
+  </mat-paginator>
 
 </div>

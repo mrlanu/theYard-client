@@ -1,55 +1,58 @@
-<mat-card class="trailer-card">
-  <mat-card-header style="padding-bottom: 10px" fxLayout fxLayoutAlign="space-between baseline">
-        <mat-card-title>New Breaking</mat-card-title>
-        <button class="button-back"mat-mini-fab (click)="onBack()">
-          <mat-icon>arrow_back</mat-icon>
-        </button>
-  </mat-card-header>
-  <mat-divider></mat-divider>
-  <mat-card-content>
-    <div>
-      <form [formGroup]="breakingForm">
-        <div formArrayName="breakingDetails" fxLayout="column">
-          <div class="detail-container"
-               fxLayout="column" fxLayoutAlign="center center"
-               *ngFor="let detailCtrl of getControls(); let i = index"
-               [formGroupName]="i">
-            <mat-form-field>
-              <mat-select placeholder="Kind of breaking" formControlName="kind">
-                <mat-option *ngFor="let kind of kinds" [value]="kind.name">
-                  {{ kind.name }}
-                </mat-option>
-              </mat-select>
-              <mat-error *ngIf="getControls()[i].get('kind').hasError('required')">
-                Kind is required
-              </mat-error>
-            </mat-form-field>
-            <mat-form-field>
-              <textarea rows="2" placeholder="Description" formControlName="description" matInput></textarea>
-              <mat-error *ngIf="getControls()[i].get('description').hasError('required')">
-                Description is required
-              </mat-error>
-            </mat-form-field>
+<div class="container">
+  <mat-card class="trailer-card">
+    <mat-card-header style="padding-bottom: 10px" fxLayout fxLayoutAlign="space-between baseline">
+      <mat-card-title>New Breaking</mat-card-title>
+      <button class="button-back"mat-mini-fab (click)="onBack()">
+        <mat-icon>arrow_back</mat-icon>
+      </button>
+    </mat-card-header>
+    <mat-divider></mat-divider>
+    <mat-card-content>
+      <div>
+        <form [formGroup]="breakingForm">
+          <div formArrayName="breakingDetails" fxLayout="column">
+            <div class="detail-container"
+                 fxLayout="column" fxLayoutAlign="center center"
+                 *ngFor="let detailCtrl of getControls(); let i = index"
+                 [formGroupName]="i">
+              <mat-form-field>
+                <mat-select placeholder="Kind of breaking" formControlName="kind">
+                  <mat-option *ngFor="let kind of kinds" [value]="kind.name">
+                    {{ kind.name }}
+                  </mat-option>
+                </mat-select>
+                <mat-error *ngIf="getControls()[i].get('kind').hasError('required')">
+                  Kind is required
+                </mat-error>
+              </mat-form-field>
+              <mat-form-field>
+                <textarea rows="2" placeholder="Description" formControlName="description" matInput></textarea>
+                <mat-error *ngIf="getControls()[i].get('description').hasError('required')">
+                  Description is required
+                </mat-error>
+              </mat-form-field>
 
-            <div fxFlex fxFlexAlign="end" fxLayoutGap="5px">
-              <button mat-icon-button color="accent"
-                      [disabled]="getControls()[i].invalid"
-                      (click)="onAddDetail()">
-                <mat-icon>add_circle</mat-icon>
-              </button>
-              <button mat-icon-button color="warn" (click)="onDeleteDetail(i)">
-                <mat-icon>close</mat-icon>
+              <div fxFlex fxFlexAlign="end" fxLayoutGap="5px">
+                <button mat-icon-button color="accent"
+                        [disabled]="getControls()[i].invalid"
+                        (click)="onAddDetail()">
+                  <mat-icon>add_circle</mat-icon>
+                </button>
+                <button mat-icon-button color="warn" (click)="onDeleteDetail(i)">
+                  <mat-icon>close</mat-icon>
+                </button>
+              </div>
+            </div>
+            <div fxFlex fxFlexAlign="end">
+              <button class="button-save" type="submit"
+                      [disabled]="breakingForm.invalid"
+                      (click)="onSubmit()" mat-raised-button color="primary">Save
               </button>
             </div>
           </div>
-          <div fxFlex fxFlexAlign="end">
-            <button class="button-save" type="submit"
-                    [disabled]="breakingForm.invalid"
-                    (click)="onSubmit()" mat-raised-button color="primary">Save
-            </button>
-          </div>
-        </div>
-      </form>
-    </div>
-  </mat-card-content>
-</mat-card>
+        </form>
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+</div>

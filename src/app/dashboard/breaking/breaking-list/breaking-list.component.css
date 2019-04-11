@@ -7,6 +7,10 @@ td, th {
   font-size: 12px;
 }
 
+.container {
+  padding: 10px;
+}
+
 .table-container {
   max-width: 1000px;
   margin: auto;
@@ -34,8 +38,20 @@ td, th {
   margin-left: 5%;
 }
 
+.filter-back {
+  opacity: 0.95;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  padding-top: 4px;
+  max-width: 1000px;
+  margin: 2px auto;
+  background: whitesmoke;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
 .button-back {
   margin-right: 15px;
+  margin-top: 10px;
 }
 
 .trailer:hover {

@@ -1,33 +1,36 @@
-<mat-card class="trailer-card">
-  <mat-card-header>
-    <mat-card-title>Breaking reported:</mat-card-title>
-    <mat-card-subtitle>
-      on <strong>{{ breaking?.date | date:'mediumDate' }}</strong> by <strong>{{ breaking?.userLastName }}</strong>
-    </mat-card-subtitle>
-    <button class="button-back"mat-mini-fab (click)="onBack()">
-      <mat-icon>arrow_back</mat-icon>
-    </button>
-  </mat-card-header>
+<div class="container">
+  <mat-card class="trailer-card">
+    <mat-card-header>
+      <mat-card-title>Breaking reported:</mat-card-title>
+      <mat-card-subtitle>
+        on <strong>{{ breaking?.date | date:'mediumDate' }}</strong> by <strong>{{ breaking?.userLastName }}</strong>
+      </mat-card-subtitle>
+      <button class="button-back"mat-mini-fab (click)="onBack()">
+        <mat-icon>arrow_back</mat-icon>
+      </button>
+    </mat-card-header>
 
-  <mat-card-content>
-    <mat-nav-list>
-      <div class="details"
-           [ngClass]="{'detail-fixed': detail.fixed, 'detail-unfixed': !detail.fixed}"
-           mat-list-item *ngFor="let detail of breaking?.breakingDetails">
-        <div fxFlex fxLayout fxLayoutAlign="space-between baseline">
-          <div style="margin-left: 15px">{{ detail.kind }}, </div>
-          <div>{{ detail.description }}</div>
-          <button mat-icon-button color="warn"
-                  (click)="onFix(breaking.id, detail.id)"
-                  [disabled]="detail.fixed">
-            <mat-icon>build</mat-icon>
-          </button>
+    <mat-card-content>
+      <mat-nav-list>
+        <div class="details"
+             [ngClass]="{'detail-fixed': detail.fixed, 'detail-unfixed': !detail.fixed}"
+             mat-list-item *ngFor="let detail of breaking?.breakingDetails">
+          <div fxFlex fxLayout fxLayoutAlign="space-between baseline">
+            <div style="margin-left: 15px">{{ detail.kind }}, </div>
+            <div>{{ detail.description }}</div>
+            <button mat-icon-button color="warn"
+                    (click)="onFix(breaking.id, detail.id)"
+                    [disabled]="detail.fixed">
+              <mat-icon>build</mat-icon>
+            </button>
+          </div>
         </div>
-      </div>
-    </mat-nav-list>
-  </mat-card-content>
+      </mat-nav-list>
+    </mat-card-content>
 
-  <mat-card-actions style="text-align: center">
+    <mat-card-actions style="text-align: center">
 
-  </mat-card-actions>
-</mat-card>
+    </mat-card-actions>
+  </mat-card>
+
+</div>

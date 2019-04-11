@@ -5,13 +5,14 @@ table {
 }
 
 td, th {
-  width: 16%;
-  font-size: 12px;
+  font-size: 11px;
 }
 
 .table-container {
   max-width: 1000px;
   margin: auto;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .mat-form-field {
@@ -20,14 +21,15 @@ td, th {
 }
 
 .filter {
-  width: 330px;
+  width: 310px;
 }
 
 .filter-back {
   opacity: 0.95;
-  border-radius: 10px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
   padding-top: 4px;
-  width: 370px;
+  max-width: 1000px;
   margin: 2px auto;
   background: whitesmoke;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -39,12 +41,13 @@ td, th {
 }
 
 .chip-false, .chip-true {
-  margin-left: 5px;
+  font-size: 10px;
+  margin-left: 3px;
   background: #FFAB91;
   text-align: center;
-  width: 30px;
-  border-radius: 10px;
-  padding: 2px 4px;
+  width: 25px;
+  border-radius: 8px;
+  padding: 2px 3px;
 }
 
 .chip-true {

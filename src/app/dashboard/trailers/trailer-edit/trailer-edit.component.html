@@ -1,78 +1,81 @@
-<mat-card class="trailer-card">
-  <mat-card-header>
-    <mat-card-title>
-      <div>New Trailer</div>
-    </mat-card-title>
-  </mat-card-header>
-  <mat-divider></mat-divider>
-  <mat-card-content>
-    <div style="margin-top: 15px">
-      <form [formGroup]="trailerForm" (ngSubmit)="onSubmit()" fxLayout="column" fxLayoutAlign="center center">
+<div class="container">
+  <mat-card class="trailer-card">
+    <mat-card-header>
+      <mat-card-title>
+        <div>New Trailer</div>
+      </mat-card-title>
+    </mat-card-header>
+    <mat-divider></mat-divider>
+    <mat-card-content>
+      <div style="margin-top: 15px">
+        <form [formGroup]="trailerForm" (ngSubmit)="onSubmit()" fxLayout="column" fxLayoutAlign="center center">
 
-        <mat-form-field>
-          <input type="text" placeholder="Unit number" formControlName="number" matInput>
-          <mat-error *ngIf="trailerForm.get('number').hasError('required')">
-            Is <strong>Required</strong>
-          </mat-error>
-        </mat-form-field>
+          <mat-form-field>
+            <input type="text" placeholder="Unit number" formControlName="number" matInput>
+            <mat-error *ngIf="trailerForm.get('number').hasError('required')">
+              Is <strong>Required</strong>
+            </mat-error>
+          </mat-form-field>
 
-        <mat-form-field>
-          <input type="text" placeholder="License plate number" formControlName="licensePlate" matInput>
-          <mat-error *ngIf="trailerForm.get('licensePlate').hasError('required')">
-            Is <strong>Required</strong>
-          </mat-error>
-        </mat-form-field>
+          <mat-form-field>
+            <input type="text" placeholder="License plate number" formControlName="licensePlate" matInput>
+            <mat-error *ngIf="trailerForm.get('licensePlate').hasError('required')">
+              Is <strong>Required</strong>
+            </mat-error>
+          </mat-form-field>
 
-        <mat-form-field>
-          <mat-select placeholder="Type" formControlName="type">
-            <mat-option *ngFor="let type of types" [value]="type.short">
-              {{ type.name }}
-            </mat-option>
-          </mat-select>
-          <mat-error *ngIf="trailerForm.get('type').hasError('required')">
-            Is <strong>Required</strong>
-          </mat-error>
-        </mat-form-field>
+          <mat-form-field>
+            <mat-select placeholder="Type" formControlName="type">
+              <mat-option *ngFor="let type of types" [value]="type.short">
+                {{ type.name }}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="trailerForm.get('type').hasError('required')">
+              Is <strong>Required</strong>
+            </mat-error>
+          </mat-form-field>
 
-        <mat-form-field>
-          <mat-select placeholder="Location" formControlName="location">
-            <mat-option *ngFor="let location of locations" [value]="location.name">
-              {{ location.name }}
-            </mat-option>
-          </mat-select>
-          <mat-error *ngIf="trailerForm.get('location').hasError('required')">
-            Is <strong>Required</strong>
-          </mat-error>
-        </mat-form-field>
+          <mat-form-field>
+            <mat-select placeholder="Location" formControlName="location">
+              <mat-option *ngFor="let location of locations" [value]="location.name">
+                {{ location.name }}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="trailerForm.get('location').hasError('required')">
+              Is <strong>Required</strong>
+            </mat-error>
+          </mat-form-field>
 
-        <mat-form-field>
-          <input name="date"
-                 placeholder="Annual Inspection date"
-                 formControlName="annualInspectionDate"
-                 matInput
-                 [matDatepicker]="picker">
-          <mat-error *ngIf="trailerForm.get('annualInspectionDate').hasError('required')">
-            Is <strong>Required</strong>
-          </mat-error>
-          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-          <mat-datepicker #picker></mat-datepicker>
-        </mat-form-field>
+          <mat-form-field>
+            <input name="date"
+                   placeholder="Annual Inspection date"
+                   formControlName="annualInspectionDate"
+                   matInput
+                   [matDatepicker]="picker">
+            <mat-error *ngIf="trailerForm.get('annualInspectionDate').hasError('required')">
+              Is <strong>Required</strong>
+            </mat-error>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
 
-        <div fxLayout fxLayoutGap="10px" style="margin-top: 40px">
-          <mat-checkbox formControlName="broken" labelPosition="before">Broken ?</mat-checkbox>
-          <mat-checkbox formControlName="railroad" labelPosition="before">for Railroad ?</mat-checkbox>
-          <mat-checkbox formControlName="available" labelPosition="before">Available ?</mat-checkbox>
-        </div>
+          <div fxLayout fxLayoutGap="10px" style="margin-top: 40px">
+            <mat-checkbox formControlName="broken" labelPosition="before">Broken ?</mat-checkbox>
+            <mat-checkbox formControlName="railroad" labelPosition="before">for Railroad ?</mat-checkbox>
+            <mat-checkbox formControlName="available" labelPosition="before">Available ?</mat-checkbox>
+          </div>
 
-        <div style="margin-top: 40px; padding-right: 15px" fxFlexAlign="end" fxLayoutGap="10px">
-          <button type="submit" mat-raised-button color="primary" [disabled]="trailerForm.invalid || trailerForm.untouched">
-            Save
-          </button>
-          <button mat-mini-fab (click)="onCancel()">
-            <mat-icon>arrow_back</mat-icon>
-          </button>
-        </div>
-      </form>
-    </div>
-  </mat-card-content>
-</mat-card>
+          <div style="margin-top: 40px; padding-right: 15px" fxFlexAlign="end" fxLayoutGap="10px">
+            <button type="submit" mat-raised-button color="primary" [disabled]="trailerForm.invalid || trailerForm.untouched">
+              Save
+            </button>
+            <button mat-mini-fab (click)="onCancel()">
+              <mat-icon>arrow_back</mat-icon>
+            </button>
+          </div>
+        </form>
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+</div>

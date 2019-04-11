@@ -1,35 +1,38 @@
-<mat-card class="trailer-card">
-  <mat-card-header>
-    <div mat-card-avatar class="trailer-header-image"></div>
-    <mat-card-title>Trailer: {{ trailer.number }}</mat-card-title>
-    <mat-card-subtitle>License plate: {{ trailer.licensePlate }}</mat-card-subtitle>
-    <button class="button-back"mat-mini-fab (click)="onBack()">
-      <mat-icon>arrow_back</mat-icon>
-    </button>
-  </mat-card-header>
-  <img mat-card-image [src]="trailer.type === 'REF' ? '/assets/img/reefer.jpg' : '/assets/img/dryvan.jpg'" alt="Photo of a Trailer">
-  <mat-card-content>
-    <div style="text-align: center">
-      Annual inspection date: <strong>{{ trailer.annualInspectionDate | date: 'MMM dd yyyy' }}</strong>
-    </div>
-    <p style="text-align: center">
-      This trailer is {{ trailer.railroad ? '':'not'}} for railroad.
-    </p>
-  </mat-card-content>
-  <mat-card-actions style="text-align: center">
-    <div>
-      <button class="buttons" mat-raised-button color="accent"
-              [disabled]="!trailer.available || currentTrailer?.number === trailer.number || currentTrailer?.number"
-              (click)="onPickUpTrailer(trailer.id)">PICK UP</button>
-      <button class="buttons" mat-raised-button color="accent"
-              [disabled]="currentTrailer?.number !== trailer.number"
-              (click)="onDropTrailer()">DROP</button>
-      <button class="buttons" mat-raised-button color="accent"
-              [disabled]="!trailer.available || currentTrailer?.number === trailer.number">RESERVE</button>
-    </div>
-    <div style="padding-top: 8px">
-      <button class="buttons" mat-raised-button color="accent" (click)="onBreaking(trailer.id)">BREAKING</button>
-      <button class="buttons" mat-raised-button color="accent" (click)="onLogs(trailer.id)">LOGS</button>
-    </div>
-  </mat-card-actions>
-</mat-card>
+<div class="container">
+  <mat-card class="trailer-card">
+    <mat-card-header>
+      <div mat-card-avatar class="trailer-header-image"></div>
+      <mat-card-title>Trailer: {{ trailer.number }}</mat-card-title>
+      <mat-card-subtitle>License plate: {{ trailer.licensePlate }}</mat-card-subtitle>
+      <button class="button-back"mat-mini-fab (click)="onBack()">
+        <mat-icon>arrow_back</mat-icon>
+      </button>
+    </mat-card-header>
+    <img mat-card-image [src]="trailer.type === 'REF' ? '/assets/img/reefer.jpg' : '/assets/img/dryvan.jpg'" alt="Photo of a Trailer">
+    <mat-card-content>
+      <div style="text-align: center">
+        Annual inspection date: <strong>{{ trailer.annualInspectionDate | date: 'MMM dd yyyy' }}</strong>
+      </div>
+      <p style="text-align: center">
+        This trailer is {{ trailer.railroad ? '':'not'}} for railroad.
+      </p>
+    </mat-card-content>
+    <mat-card-actions style="text-align: center">
+      <div>
+        <button class="buttons" mat-raised-button color="accent"
+                [disabled]="!trailer.available || currentTrailer?.number === trailer.number || currentTrailer?.number"
+                (click)="onPickUpTrailer(trailer.id)">PICK UP</button>
+        <button class="buttons" mat-raised-button color="accent"
+                [disabled]="currentTrailer?.number !== trailer.number"
+                (click)="onDropTrailer()">DROP</button>
+        <button class="buttons" mat-raised-button color="accent"
+                [disabled]="!trailer.available || currentTrailer?.number === trailer.number">RESERVE</button>
+      </div>
+      <div style="padding-top: 8px">
+        <button class="buttons" mat-raised-button color="accent" (click)="onBreaking(trailer.id)">BREAKING</button>
+        <button class="buttons" mat-raised-button color="accent" (click)="onLogs(trailer.id)">LOGS</button>
+      </div>
+    </mat-card-actions>
+  </mat-card>
+
+</div>

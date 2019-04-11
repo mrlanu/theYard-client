@@ -2,6 +2,10 @@ mat-form-field{
   width: 70%;
 }
 
+.container {
+  padding: 10px;
+}
+
 .trailer-card {
   max-width: 400px;
   margin: auto;
