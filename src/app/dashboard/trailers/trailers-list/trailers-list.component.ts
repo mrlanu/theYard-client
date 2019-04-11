@@ -46,6 +46,10 @@ export class TrailersListComponent implements OnInit, AfterViewInit, OnDestroy {
     this.router.navigate(['dashboard', 'trailer-details', trailer.id]);
   }
 
+  onBreak() {
+    console.log('Fuck');
+  }
+
   ngOnDestroy(): void {
     this.componentSubs.forEach(sub => {
       sub.unsubscribe();
