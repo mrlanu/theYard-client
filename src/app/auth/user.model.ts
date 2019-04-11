@@ -1,4 +1,3 @@
-import {Trailer} from '../models/trailer.model';
 import {Company} from '../models/company.model';
 
 export interface User {

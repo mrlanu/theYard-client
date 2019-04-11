@@ -16,6 +16,7 @@ a:hover, a:active{
 .my-toolbar {
   position: fixed;
   z-index: 2;
+  border-bottom: solid 1px whitesmoke;
 }
 
 .logo {
@@ -23,8 +24,8 @@ a:hover, a:active{
   left: 20%;
   width: 150px;
   height: 100%;
-  background: #FFA726;
-  border: 4px solid #242424;
+  background: #FFC34C;
+  border: 3px solid whitesmoke;
   border-radius: 3px;
   font-family: 'Kaushan Script', cursive;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -36,5 +37,5 @@ a:hover, a:active{
   font-weight: bold;
   font-size: 35px;
   text-align: center;
-  color: #343434;
+  color: #000000;
 }

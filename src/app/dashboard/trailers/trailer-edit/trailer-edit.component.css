@@ -5,6 +5,7 @@ mat-form-field{
 .trailer-card {
   max-width: 400px;
   margin: auto;
+  opacity: 0.95;
 }
 
 .example-margin {

@@ -19,7 +19,7 @@ export class SignupComponent implements OnInit, OnDestroy {
   constructor(private authService: AuthService, private uiService: UiService) { }
 
   transition(counter: number) {
-    if (counter < 10) {
+    if (counter < 9) {
       setTimeout(() => {
         counter++;
         this.dynamicOpacity += 0.1;

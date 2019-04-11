@@ -13,6 +13,6 @@ a:hover, a:active {
 
 .active{
   font-size: 20px;
-  border-bottom: #004F43 1px solid;
-  border-top: #004F43 1px solid;
+  border-bottom: whitesmoke 1px solid;
+  border-top: whitesmoke 1px solid;
 }

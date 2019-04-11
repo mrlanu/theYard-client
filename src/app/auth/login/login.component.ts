@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 
   transition(counter: number) {
-    if (counter < 10) {
+    if (counter < 9) {
       setTimeout(() => {
         counter++;
         this.dynamicOpacity += 0.1;

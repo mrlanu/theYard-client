@@ -1,7 +1,8 @@
-<div class="background">
+<div class="background darken-overlay">
   <div id="logo">theYard by Lanu<span>©</span></div>
   <div fxLayout="column" fxLayoutAlign="center center">
-    <div style="height: 200px"></div>
+    <div style="height: 100px" fxHide.lt-md></div>
+    <div style="height: 150px"></div>
     <app-login *ngIf="isLogin"></app-login>
     <app-signup *ngIf="!isLogin"></app-signup>
   </div>
