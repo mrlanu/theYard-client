@@ -28,6 +28,7 @@ import { BreakingListComponent } from './dashboard/breaking/breaking-list/breaki
 import { BreakingDetailsComponent } from './dashboard/breaking/breaking-details/breaking-details.component';
 import { BreakingEditComponent } from './dashboard/breaking/breaking-edit/breaking-edit.component';
 import { ConfirmByPasswordComponent } from './shared/confirm-by-password/confirm-by-password.component';
+import {DeleteConfirmComponent} from './shared/delete-confirm.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { ConfirmByPasswordComponent } from './shared/confirm-by-password/confirm
     BreakingDetailsComponent,
     BreakingEditComponent,
     ConfirmByPasswordComponent,
+    DeleteConfirmComponent
   ],
   imports: [
     MaterialModule,
@@ -62,7 +64,8 @@ import { ConfirmByPasswordComponent } from './shared/confirm-by-password/confirm
   bootstrap: [AppComponent],
   entryComponents: [
     DropDialogComponent,
-    ConfirmByPasswordComponent
+    ConfirmByPasswordComponent,
+    DeleteConfirmComponent
   ]
 })
 export class AppModule { }

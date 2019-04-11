@@ -9,6 +9,7 @@ import {AuthService} from '../../../auth/auth.service';
 export class SidenavListComponent implements OnInit {
 
   @Output() closeSidenav = new EventEmitter<void>();
+  isAuth = false;
 
   constructor(private authService: AuthService) { }
 
