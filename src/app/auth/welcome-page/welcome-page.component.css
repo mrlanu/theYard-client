@@ -1,6 +1,6 @@
 .background{
   height: 100%;
-  background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), url('/assets/img/main-back.jpg') left 50% bottom 50%/cover;
+  background: url('/assets/img/main-back.jpg') left 50% bottom 50%/cover;
 }
 
 #logo {

@@ -10,9 +10,6 @@ td, th {
 
 .container {
   padding: 10px;
-}
-
-.table-container {
   max-width: 1000px;
   margin: auto;
 }
@@ -60,15 +57,8 @@ td, th {
   cursor: pointer;
 }
 
-.chip-false, .chip-true {
-  margin-left: 10px;
-  background: #FFAB91;
-  text-align: center;
-  width: 30px;
-  border-radius: 15px;
-  padding: 3px 7px;
-}
-
-.chip-true {
-  background: #80CBC4;
+.paginator {
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  opacity: 0.95;
 }

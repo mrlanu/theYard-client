@@ -9,9 +9,6 @@ td, th {
 
 .container {
   padding: 10px;
-}
-
-.table-container {
   max-width: 1000px;
   margin: auto;
 }
@@ -69,4 +66,10 @@ td, th {
 
 .chip-true {
   background: #80CBC4;
+}
+
+.paginator {
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  opacity: 0.95;
 }

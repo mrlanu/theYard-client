@@ -1,18 +1,16 @@
 <app-header (sidenavToggle)="sidenav.toggle()"></app-header>
 
-<mat-sidenav-container>
+<mat-sidenav-container class="proba">
 
   <mat-sidenav #sidenav role="navigation">
     <app-sidenav-list (closeSidenav)="sidenav.close()"></app-sidenav-list>
   </mat-sidenav>
 
   <mat-sidenav-content>
-    <div class="background">
       <div style="height: 65px"></div>
       <div style="height: 20px" fxHide.lt-md></div>
       <router-outlet></router-outlet>
       <div style="height: 70px"></div>
-    </div>
   </mat-sidenav-content>
 
 </mat-sidenav-container>

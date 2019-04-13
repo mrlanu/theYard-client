@@ -9,13 +9,10 @@ td, th {
 }
 
 .container {
-  padding-left: 10px;
-  padding-right: 10px;
-}
-
-.table-container {
   max-width: 1000px;
   margin: auto;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .mat-form-field {
@@ -28,6 +25,7 @@ td, th {
 }
 
 .filter-back {
+  text-align: center;
   opacity: 0.95;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
@@ -55,4 +53,10 @@ td, th {
 
 .chip-true {
   background: #80CBC4;
+}
+
+.paginator {
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  opacity: 0.95;
 }

@@ -8,8 +8,7 @@ mat-sidenav {
   border-right: 1px solid whitesmoke;
 }
 
-.background{
-  height: 100%;
+.proba {
   background: url('/assets/img/main-back.jpg') left 50% bottom 50%/cover;
 }
 

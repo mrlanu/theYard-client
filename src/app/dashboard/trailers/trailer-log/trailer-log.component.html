@@ -1,5 +1,6 @@
 <div class="container">
-  <div class="table-container filter-back" fxLayout fxLayoutAlign="space-between">
+
+  <div class="filter-back" fxLayout fxLayoutAlign="space-between">
     <mat-form-field class="filter">
       <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
     </mat-form-field>
@@ -8,7 +9,7 @@
     </button>
   </div>
 
-  <div class="mat-elevation-z8 table-container">
+  <div class="mat-elevation-z8">
     <table mat-table [dataSource]="dataSource" matSort>
 
       <!-- Date Column -->
@@ -42,7 +43,7 @@
     </table>
 
     <mat-paginator
-      style="border-bottom-left-radius: 10px; border-bottom-right-radius: 10px"
+      class="paginator"
       [pageSizeOptions]="[10, 25, 100]">
     </mat-paginator>
 
