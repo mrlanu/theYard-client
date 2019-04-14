@@ -31,7 +31,7 @@
       <ng-container matColumnDef="broken">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Broken </th>
         <td mat-cell *matCellDef="let row" style="text-align: center">
-          <div [ngClass]="{'chip-true': !row.broken, 'chip-false': row.broken}" (click)="onBreak()">
+          <div [ngClass]="{'chip-true': !row.broken, 'chip-false': row.broken}">
             {{row.broken ? 'YES':'NO'}}
           </div>
         </td>

@@ -1,4 +1,4 @@
-<div class="formBack" [ngStyle]="{opacity: dynamicOpacity}">
+<div class="formBack" [@loginVisibleState]="state">
     <form fxLayout="column"
           fxLayoutAlign="center center"
           fxLayoutGap="15px"
@@ -11,7 +11,6 @@
           matInput
           placeholder="Your username"
           name="username"
-          required
           formControlName="username">
         <mat-hint>Please enter a username.</mat-hint>
         <mat-error>Invalid or missing username.</mat-error>
@@ -45,3 +44,4 @@
       </div>
     </form>
 </div>
+

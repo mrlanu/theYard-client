@@ -1,11 +1,11 @@
-<div id="formBack" [ngStyle]="{opacity: dynamicOpacity}">
+<div id="formBack" [@loginVisibleState]="state">
     <form [formGroup]="signUpForm"
           (ngSubmit)="onSubmit()"
           fxLayout="column"
           fxLayoutAlign="center center"
           fxLayoutGap="15px">
       <mat-form-field>
-        <input type="text" matInput formControlName="username" placeholder="Username" required>
+        <input type="text" matInput formControlName="username" placeholder="Username">
         <mat-hint>Enter your username.</mat-hint>
         <mat-error>Invalid or missing username.</mat-error>
       </mat-form-field>

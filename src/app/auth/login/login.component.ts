@@ -3,23 +3,35 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Subscription} from 'rxjs';
 import {AuthService} from '../auth.service';
 import {UiService} from '../../shared/ui.service';
+import {animate, state, style, transition, trigger} from '@angular/animations';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
+  animations: [
+    trigger('loginVisibleState', [
+      state('hide', style({
+        'opacity': '0'
+      })),
+      state('visible', style({
+        'opacity': '0.95',
+      })),
+      transition('hide <=> visible', animate(1500))
+    ])
+  ]
 })
 export class LoginComponent implements OnInit, OnDestroy {
 
   loginForm: FormGroup;
   isLoading = false;
   componentSubs: Subscription[] = [];
-  dynamicOpacity = 0;
+  state = 'hide';
 
   constructor(private authService: AuthService, private uiService: UiService) { }
 
   ngOnInit() {
-    this.transition(0);
+
     this.componentSubs.push(this.uiService.isLoadingChanged
       .subscribe(result => {
         this.isLoading = result;
@@ -30,16 +42,10 @@ export class LoginComponent implements OnInit, OnDestroy {
       password: new FormControl('12345',
         {validators: [Validators.required]})
     });
-  }
 
-  transition(counter: number) {
-    if (counter < 9) {
-      setTimeout(() => {
-        counter++;
-        this.dynamicOpacity += 0.1;
-        this.transition(counter);
-      }, 100);
-    }
+    setTimeout(() => {
+      this.state = 'visible';
+    }, 1700);
   }
 
   onRegister() {
