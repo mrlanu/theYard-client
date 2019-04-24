@@ -3,16 +3,6 @@
   background: url('/assets/img/main-back.jpg') left 50% bottom 50%/cover;
 }
 
-.truck-logo {
-  position: absolute;
-  right: 30px;
-  bottom: 30px;
-  width: 170px;
-  height: 105px;
-  background: url('/assets/img/truck.png');
-  background-size: cover;
-}
-
 #logo {
   font-family: 'Kaushan Script', cursive;
   padding-top: 30px;
