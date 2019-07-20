@@ -1,4 +1,4 @@
-# TheYard example is deployed on https://the-yard-lanu.firebaseapp.com
+# TheYard example is deployed on https://the-yard.lanu.io
 
 # TheYard
 
